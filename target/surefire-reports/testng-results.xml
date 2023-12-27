@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-12-21T13:40:31 PST" name="All Test Suite" finished-at="2023-12-21T13:42:15 PST" duration-ms="104035">
+    <groups>
+      <group name="Smoke">
+        <method signature="ecommerceapp_testcase4.FillForm(java.util.HashMap)[pri:0, instance:TestCases.ecommerceapp_testcase4@15cea7b0]" name="FillForm" class="TestCases.ecommerceapp_testcase4"/>
+      </group> <!-- Smoke -->
+    </groups>
+    <test started-at="2023-12-21T13:40:31 PST" name="C:/Users/Prince Pineda/IdeaProjects/AppiumTrainingHybridFramework" finished-at="2023-12-21T13:42:15 PST" duration-ms="104035">
+      <class name="TestCases.ecommerceapp_testcase4">
+        <test-method is-config="true" signature="ConfigureAppium()[pri:0, instance:TestCases.ecommerceapp_testcase4@15cea7b0]" started-at="2023-12-21T13:40:31 PST" name="ConfigureAppium" finished-at="2023-12-21T13:40:37 PST" duration-ms="6406" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ConfigureAppium -->
+        <test-method signature="FillForm(java.util.HashMap)[pri:0, instance:TestCases.ecommerceapp_testcase4@15cea7b0]" started-at="2023-12-21T13:40:37 PST" name="FillForm" data-provider="getData" finished-at="2023-12-21T13:41:43 PST" duration-ms="66043" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{name=Aimee, country=Philippines}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- FillForm -->
+        <test-method is-config="true" signature="ConfigureAppium()[pri:0, instance:TestCases.ecommerceapp_testcase4@15cea7b0]" started-at="2023-12-21T13:41:43 PST" name="ConfigureAppium" finished-at="2023-12-21T13:41:48 PST" duration-ms="4650" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ConfigureAppium -->
+        <test-method signature="FillForm(java.util.HashMap)[pri:0, instance:TestCases.ecommerceapp_testcase4@15cea7b0]" started-at="2023-12-21T13:41:48 PST" name="FillForm" data-provider="getData" finished-at="2023-12-21T13:42:15 PST" duration-ms="26658" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{name=Aldriana, country=Argentina}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- FillForm -->
+      </class> <!-- TestCases.ecommerceapp_testcase4 -->
+    </test> <!-- C:/Users/Prince Pineda/IdeaProjects/AppiumTrainingHybridFramework -->
+  </suite> <!-- All Test Suite -->
+</testng-results>

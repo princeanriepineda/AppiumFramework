@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" thread-count="2">
+    <test verbose="2" preserve-order="true" name="C:/Users/Prince Pineda/IdeaProjects/AppiumTrainingHybridFramework">
+        <classes>
+            <class name="TestCases.GeneralStore_RegistrationTestcase">
+                <methods>
+                    <include name="FillForm"/>
+                </methods>
+            </class>
+            <class name="TestCases.ecommerceapp_testcase4">
+                <methods>
+                    <include name="FillForm"/>
+                </methods>
+            </class>
+            <class name="TestCases.ecommerceapp_testcase2">
+                <methods>
+                    <include name="FillFormPostiveFlow"/>
+                    <include name="FillFormErrorScenario"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

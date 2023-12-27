@@ -1,0 +1,9 @@
+org/example/AppTest.class
+Base/AndroidBaseTest.class
+Base/IOSBaseTest.class
+Base/Listener.class
+TestCases/GeneralStore_RegistrationTestcase.class
+TestCases/IOSBasics.class
+Base/ListenersExtentReport.class
+TestCases/ecommerceapp_testcase4.class
+TestCases/ecommerceapp_testcase2.class
