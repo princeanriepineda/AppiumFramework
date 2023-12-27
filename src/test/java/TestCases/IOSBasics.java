@@ -10,7 +10,7 @@ public class IOSBasics extends IOSBaseTest {
     @Test
     public void IOSBasicsTest(){
         System.out.println("appium started");
-        System.out.println("Monitored By GitHub!");
+
 
         AlertViews alertViews = homePage.selectAlertViews();
         alertViews.fillTextLabel("hello world");
