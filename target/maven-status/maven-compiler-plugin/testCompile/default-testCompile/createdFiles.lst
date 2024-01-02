@@ -2,6 +2,7 @@ org/example/AppTest.class
 Base/AndroidBaseTest.class
 Base/IOSBaseTest.class
 Base/Listener.class
+TestCases/Blank.class
 TestCases/GeneralStore_RegistrationTestcase.class
 TestCases/IOSBasics.class
 Base/ListenersExtentReport.class
