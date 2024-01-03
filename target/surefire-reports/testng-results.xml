@@ -2,19 +2,19 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-12-27T16:05:27 PST" name="All Test Suite" finished-at="2023-12-27T16:07:09 PST" duration-ms="102282">
+  <suite started-at="2024-01-03T18:00:40 PST" name="All Test Suite" finished-at="2024-01-03T18:02:26 PST" duration-ms="106836">
     <groups>
       <group name="Smoke">
-        <method signature="ecommerceapp_testcase4.FillForm(java.util.HashMap)[pri:0, instance:TestCases.ecommerceapp_testcase4@62e6a3ec]" name="FillForm" class="TestCases.ecommerceapp_testcase4"/>
+        <method signature="ecommerceapp_testcase4.FillForm(java.util.HashMap)[pri:0, instance:TestCases.ecommerceapp_testcase4@522ba524]" name="FillForm" class="TestCases.ecommerceapp_testcase4"/>
       </group> <!-- Smoke -->
     </groups>
-    <test started-at="2023-12-27T16:05:27 PST" name="C:/Users/Prince Pineda/IdeaProjects/AppiumTrainingHybridFramework" finished-at="2023-12-27T16:07:09 PST" duration-ms="102282">
+    <test started-at="2024-01-03T18:00:40 PST" name="C:/Users/Prince Pineda/IdeaProjects/AppiumTrainingHybridFramework" finished-at="2024-01-03T18:02:26 PST" duration-ms="106836">
       <class name="TestCases.ecommerceapp_testcase4">
-        <test-method is-config="true" signature="ConfigureAppium()[pri:0, instance:TestCases.ecommerceapp_testcase4@62e6a3ec]" started-at="2023-12-27T16:05:27 PST" name="ConfigureAppium" finished-at="2023-12-27T16:05:32 PST" duration-ms="4772" status="PASS">
+        <test-method is-config="true" signature="ConfigureAppium()[pri:0, instance:TestCases.ecommerceapp_testcase4@522ba524]" started-at="2024-01-03T18:00:40 PST" name="ConfigureAppium" finished-at="2024-01-03T18:00:46 PST" duration-ms="6212" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ConfigureAppium -->
-        <test-method signature="FillForm(java.util.HashMap)[pri:0, instance:TestCases.ecommerceapp_testcase4@62e6a3ec]" started-at="2023-12-27T16:05:32 PST" name="FillForm" data-provider="getData" finished-at="2023-12-27T16:06:39 PST" duration-ms="67244" status="PASS">
+        <test-method signature="FillForm(java.util.HashMap)[pri:0, instance:TestCases.ecommerceapp_testcase4@522ba524]" started-at="2024-01-03T18:00:46 PST" name="FillForm" data-provider="getData" finished-at="2024-01-03T18:01:54 PST" duration-ms="67756" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -25,11 +25,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- FillForm -->
-        <test-method is-config="true" signature="ConfigureAppium()[pri:0, instance:TestCases.ecommerceapp_testcase4@62e6a3ec]" started-at="2023-12-27T16:06:39 PST" name="ConfigureAppium" finished-at="2023-12-27T16:06:44 PST" duration-ms="4915" status="PASS">
+        <test-method is-config="true" signature="ConfigureAppium()[pri:0, instance:TestCases.ecommerceapp_testcase4@522ba524]" started-at="2024-01-03T18:01:54 PST" name="ConfigureAppium" finished-at="2024-01-03T18:01:59 PST" duration-ms="5028" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ConfigureAppium -->
-        <test-method signature="FillForm(java.util.HashMap)[pri:0, instance:TestCases.ecommerceapp_testcase4@62e6a3ec]" started-at="2023-12-27T16:06:44 PST" name="FillForm" data-provider="getData" finished-at="2023-12-27T16:07:09 PST" duration-ms="25021" status="PASS">
+        <test-method signature="FillForm(java.util.HashMap)[pri:0, instance:TestCases.ecommerceapp_testcase4@522ba524]" started-at="2024-01-03T18:01:59 PST" name="FillForm" data-provider="getData" finished-at="2024-01-03T18:02:26 PST" duration-ms="27496" status="PASS">
           <params>
             <param index="0">
               <value>

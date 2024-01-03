@@ -1,1 +1,0 @@
-{"uuid":"7247c437-9eb8-480f-a40c-723a7cf9ba03","name":"Base.BaseTestAndroid.EndTest","children":["89151b4f-8d07-4bec-9521-2088e3d54e3f"],"description":"","befores":[],"afters":[{"name":"EndTest","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1701404615486,"stop":1701404615805}],"start":1701404615486,"stop":1701404615805}
