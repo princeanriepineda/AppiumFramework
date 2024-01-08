@@ -41,10 +41,13 @@ public class AndroidBaseTest extends AppiumUtils {
         options = new UiAutomator2Options();
         options.setDeviceName(prop.getProperty("AndroidDeviceName"));
         options.setApp("/Users/princeanriepineda/IdeaProjects/AppiumTrainingHybridFramework/src/main/java/ResourcesAPK/General-Store.apk");
+        //options.setApp("/Users/princeanriepineda/GitAppium/AppiumTrainingHybridFramework/src/main/java/ResourcesAPK/base.apk");
         options.setCapability("appium:chromedriverEnableAsyncDownload", true);
         driver = new AndroidDriver(service.getUrl(), options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
         GSFormPage = new GeneralStoreFormPage(driver);
+
+
 
     }
     @AfterMethod
