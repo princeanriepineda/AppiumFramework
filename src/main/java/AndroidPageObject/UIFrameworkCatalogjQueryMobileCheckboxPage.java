@@ -42,7 +42,7 @@ public class UIFrameworkCatalogjQueryMobileCheckboxPage extends AndroidActions {
     private WebElement HorizontalThreeCheckBox;
 
     //***************************************************************************************************
-    @Step("Step: Validate the Vertical CheckBoxes From 1 to 3 in the jQuery Mobile 1.4.5 Check Boxes Page")
+    @Step("Step: CheckBoxes Scenario: Validate the Vertical CheckBoxes From 1 to 3 in the jQuery Mobile 1.4.5 Check Boxes Page")
     @Severity(SeverityLevel.NORMAL)
     public void jQueryMobile145CheckBoxesVertical(){
         Allure.step("Vertical Check Boxes Clicked");
@@ -64,7 +64,7 @@ public class UIFrameworkCatalogjQueryMobileCheckboxPage extends AndroidActions {
     }
 
     //***************************************************************************************************
-    @Step("Step: Validate the Horizontal CheckBoxes From 1 to 3 in the jQuery Mobile 1.4.5 Check Boxes Page")
+    @Step("Step: CheckBoxes Scenario: Validate the Horizontal CheckBoxes From 1 to 3 in the jQuery Mobile 1.4.5 Check Boxes Page")
     @Severity(SeverityLevel.NORMAL)
     public void jQueryMobile145CheckBoxesHorizontal(){
         Allure.step("Horizontal Check Boxes Clicked");

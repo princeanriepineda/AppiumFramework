@@ -1,8 +1,6 @@
 package TestCases;
 
-import AndroidPageObject.UIFrameworkCatalogLandingPage;
-import AndroidPageObject.UIFrameworkCatalogjQueryMobile145LandingPage;
-import AndroidPageObject.UIFrameworkCatalogjQueryMobileCheckboxPage;
+import AndroidPageObject.*;
 import Base.AndroidBaseTest;
 import Base.Listener;
 import io.qameta.allure.Description;
@@ -14,11 +12,11 @@ import org.testng.annotations.Test;
 
 @Listeners(Listener.class)
 public class AndroidUICatalogInputForms_TestCases extends AndroidBaseTest {
-
     public UIFrameworkCatalogLandingPage UIFCLP;
     public UIFrameworkCatalogjQueryMobile145LandingPage UIFCjQueryMobileLP;
-
     public UIFrameworkCatalogjQueryMobileCheckboxPage UIFCjQueryMobileCheckBoxP;
+    public UIFrameworkCatalogjQueryMobileRadioButtonsPage UIFCjQueryMobileRadioButtonP;
+    public UIFrameworkCatalogjQueryMobileFormsPage UIFCjQueryMobileFormsP;
 
     @Test(priority = 1)
     @Story("Input Forms Scenario")
@@ -30,12 +28,23 @@ public class AndroidUICatalogInputForms_TestCases extends AndroidBaseTest {
         UIFCLP = new UIFrameworkCatalogLandingPage(driver);
         UIFCjQueryMobileLP = new UIFrameworkCatalogjQueryMobile145LandingPage(driver);
         UIFCjQueryMobileCheckBoxP = new UIFrameworkCatalogjQueryMobileCheckboxPage(driver);
+        UIFCjQueryMobileRadioButtonP = new UIFrameworkCatalogjQueryMobileRadioButtonsPage(driver);
+        UIFCjQueryMobileFormsP = new UIFrameworkCatalogjQueryMobileFormsPage(driver);
 
         //****************************************************************************
         UIFCLP.SelectFramework("jQuery Mobile 1.4.5");
         UIFCjQueryMobileLP.jQueryMobile145CheckBox();
         UIFCjQueryMobileCheckBoxP.jQueryMobile145CheckBoxesVertical();
         UIFCjQueryMobileCheckBoxP.jQueryMobile145CheckBoxesHorizontal();
-
+        driver.navigate().back();
+        //*****************************************************************************
+        UIFCjQueryMobileLP.jQueryMobile145RadioButtons();
+        UIFCjQueryMobileRadioButtonP.jQueryMobile145RadioButtonsVertical();
+        UIFCjQueryMobileRadioButtonP.jQueryMobile145RadioButtonsHorizontal();
+        driver.navigate().back();
+        //*****************************************************************************
+        UIFCjQueryMobileLP.jQueryMobile145Forms();
+        UIFCjQueryMobileFormsP.jQueryMobile145NativeSelectDrpdwn("Three");
+        driver.navigate().back();
     }
 }
