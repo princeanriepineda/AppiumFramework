@@ -46,5 +46,8 @@ public class AndroidUICatalogInputForms_TestCases extends AndroidBaseTest {
         UIFCjQueryMobileLP.jQueryMobile145Forms();
         UIFCjQueryMobileFormsP.jQueryMobile145NativeSelectDrpdwn("Three");
         driver.navigate().back();
+        driver.navigate().back();
+        //******************************************************************************
+        UIFCLP.SelectFramework("Framework7 Material 1.4.0");
     }
 }
