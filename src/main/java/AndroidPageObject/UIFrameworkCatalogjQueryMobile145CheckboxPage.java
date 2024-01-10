@@ -12,12 +12,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-public class UIFrameworkCatalogjQueryMobileCheckboxPage extends AndroidActions {
+public class UIFrameworkCatalogjQueryMobile145CheckboxPage extends AndroidActions {
 
 
     AndroidDriver driver;
 
-    public UIFrameworkCatalogjQueryMobileCheckboxPage(AndroidDriver driver){
+    public UIFrameworkCatalogjQueryMobile145CheckboxPage(AndroidDriver driver){
         super(driver);
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver),this);

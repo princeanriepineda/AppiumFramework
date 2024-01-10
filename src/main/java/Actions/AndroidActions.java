@@ -25,6 +25,10 @@ public class AndroidActions extends AppiumUtils{
                 "percent", 0.75
         ));
     }
+    public boolean isSwipeActionOccurring(Point initialPosition, Point finalPosition) {
+        // Validate whether the x-coordinate changes after the swipe
+        return initialPosition.getX() != finalPosition.getX();
+    }
     public  void DragAndDrop(WebElement ele, String directionX, String directionY) throws InterruptedException {
         // Java
         ((JavascriptExecutor) driver).executeScript("mobile: dragGesture", ImmutableMap.of(

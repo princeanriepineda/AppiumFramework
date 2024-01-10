@@ -14,30 +14,31 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-public class UIFrameworkCatalogjQueryMobileFormsPage extends AndroidActions {
+public class UIFrameworkCatalogPhonon131PopoversPage extends AndroidActions {
 
     AndroidDriver driver;
 
-    public UIFrameworkCatalogjQueryMobileFormsPage(AndroidDriver driver){
+    public UIFrameworkCatalogPhonon131PopoversPage(AndroidDriver driver){
         super(driver);
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver),this);
     }
 
     @AndroidFindBy(xpath = "")
-    private WebElement NativeSelectDrpDwn;
+    private WebElement SelectDrpDwn;
 
-    @Step("Step: Select Drop Down Scenario list: Validate the Native Select Drop Down in the jQuery Mobile 1.4.5 Forms Page")
+    //***************************************************************************************************
+    @Step("Step: Select Drop Down list Scenario: Validate the Select Drop Down in the Phonon 1.3.1 Popovers Page")
     @Severity(SeverityLevel.NORMAL)
-    public void jQueryMobile145NativeSelectDrpdwn(String NativeSelect) {
-        Allure.step("Native Select Drop Down List Selected");
-        NativeSelectDrpDwn.click();
-        driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\""+NativeSelect+"\"))"));
-        String itemXPath = "//android.widget.TextView[@resource-id='android:id/text1' and @text='"+NativeSelect+"']";
+    public void Phonon131SelectDrpdwn(String Select) {
+        Allure.step("Phonon 1.3.1 Select Drop Down List Selected");
+        SelectDrpDwn.click();
+        driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\""+Select+"\"))"));
+        String itemXPath = "//android.widget.TextView[@resource-id='android:id/text1' and @text='"+Select+"']";
         WebElement listItem = driver.findElement(By.xpath(itemXPath));
         listItem.click();
         String ActualSelectedItem = listItem.getText();
-        Assert.assertEquals(ActualSelectedItem,NativeSelect,"Failed in Assertion Check Values Or Synchronization!");
+        Assert.assertEquals(ActualSelectedItem,Select,"Failed in Assertion Check Values Or Synchronization!");
         Allure.addAttachment("Validation Passed! Click DropDown For Actual Value.",ActualSelectedItem);
         AndroidActions.screenshot(driver);
 

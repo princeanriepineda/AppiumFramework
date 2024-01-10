@@ -12,11 +12,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-public class UIFrameworkCatalogjQueryMobileRadioButtonsPage extends AndroidActions {
+public class UIFrameworkCatalogjQueryMobile145RadioButtonsPage extends AndroidActions {
 
     AndroidDriver driver;
 
-    public UIFrameworkCatalogjQueryMobileRadioButtonsPage(AndroidDriver driver){
+    public UIFrameworkCatalogjQueryMobile145RadioButtonsPage(AndroidDriver driver){
         super(driver);
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver),this);
