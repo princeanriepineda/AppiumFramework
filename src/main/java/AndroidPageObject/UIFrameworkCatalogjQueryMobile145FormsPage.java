@@ -24,7 +24,7 @@ public class UIFrameworkCatalogjQueryMobile145FormsPage extends AndroidActions {
         PageFactory.initElements(new AppiumFieldDecorator(driver),this);
     }
 
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//android.view.View[@resource-id=\"select-native-2-button\"]")
     private WebElement NativeSelectDrpDwn;
 
     //***************************************************************************************************
@@ -33,11 +33,14 @@ public class UIFrameworkCatalogjQueryMobile145FormsPage extends AndroidActions {
     public void jQueryMobile145NativeSelectDrpdwn(String NativeSelect) {
         Allure.step("jQuery Native Select Drop Down List Selected");
         NativeSelectDrpDwn.click();
+        AndroidActions.screenshot(driver);
         driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\""+NativeSelect+"\"))"));
-        String itemXPath = "//android.widget.TextView[@resource-id='android:id/text1' and @text='"+NativeSelect+"']";
+        String itemXPath = "//android.widget.CheckedTextView[@resource-id=\"android:id/text1\" and @text=\""+NativeSelect+"\"]";
         WebElement listItem = driver.findElement(By.xpath(itemXPath));
         listItem.click();
-        String ActualSelectedItem = listItem.getText();
+        String ActualSelectedItemXpath = "//android.view.View[@content-desc=\""+NativeSelect+"\"]";
+        WebElement ActualSelectedItemText = driver.findElement(By.xpath(ActualSelectedItemXpath));
+        String ActualSelectedItem = ActualSelectedItemText.getAttribute("content-desc");
         Assert.assertEquals(ActualSelectedItem,NativeSelect,"Failed in Assertion Check Values Or Synchronization!");
         Allure.addAttachment("Validation Passed! Click DropDown For Actual Value.",ActualSelectedItem);
         AndroidActions.screenshot(driver);

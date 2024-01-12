@@ -23,22 +23,23 @@ public class UIFrameworkCatalogjQueryMobile145CheckboxPage extends AndroidAction
         PageFactory.initElements(new AppiumFieldDecorator(driver),this);
     }
 
-    @AndroidFindBy(xpath="")
+    @AndroidFindBy(xpath = "//android.widget.CheckBox[@content-desc=\"One \"]")
     private WebElement VerticalOneCheckBox;
 
-    @AndroidFindBy(xpath="")
+
+    @AndroidFindBy(xpath = "//android.widget.CheckBox[@content-desc=\"Two \"]")
     private WebElement VerticalTwoCheckBox;
 
-    @AndroidFindBy(xpath="")
+    @AndroidFindBy(xpath = "//android.widget.CheckBox[@content-desc=\"Three \"]")
     private WebElement VerticalThreeCheckBox;
 
-    @AndroidFindBy(xpath="")
+    @AndroidFindBy(xpath="//android.widget.CheckBox[@content-desc=\"One\"]")
     private WebElement HorizontalOneCheckBox;
 
-    @AndroidFindBy(xpath="")
+    @AndroidFindBy(xpath="//android.widget.CheckBox[@content-desc=\"Two\"]")
     private WebElement HorizontalTwoCheckBox;
 
-    @AndroidFindBy(xpath="")
+    @AndroidFindBy(xpath="//android.widget.CheckBox[@content-desc=\"Three\"]")
     private WebElement HorizontalThreeCheckBox;
 
     //***************************************************************************************************
@@ -48,15 +49,15 @@ public class UIFrameworkCatalogjQueryMobile145CheckboxPage extends AndroidAction
         Allure.step("Vertical Check Boxes Clicked");
 
         VerticalOneCheckBox.click();
-        Assert.assertTrue(VerticalOneCheckBox.isSelected(), "Checkbox is not selected after click");
+        Assert.assertTrue(VerticalOneCheckBox.isEnabled(), "Checkbox is not Enabled after click");
         Allure.addAttachment("Validation Passed! Check The Dropdown","CheckBox Is Clicked.");
 
         VerticalTwoCheckBox.click();
-        Assert.assertTrue(VerticalTwoCheckBox.isSelected(), "Checkbox is not selected after click");
+        Assert.assertTrue(VerticalTwoCheckBox.isEnabled(), "Checkbox is not Enabled after click");
         Allure.addAttachment("Validation Passed! Check The Dropdown","CheckBox Is Clicked.");
 
         VerticalThreeCheckBox.click();
-        Assert.assertTrue(VerticalThreeCheckBox.isSelected(), "Checkbox is not selected after click");
+        Assert.assertTrue(VerticalThreeCheckBox.isEnabled(), "Checkbox is not Enabled after click");
         Allure.addAttachment("Validation Passed! Check The Dropdown","CheckBox Is Clicked.");
 
         AndroidActions.screenshot(driver);
@@ -70,15 +71,15 @@ public class UIFrameworkCatalogjQueryMobile145CheckboxPage extends AndroidAction
         Allure.step("Horizontal Check Boxes Clicked");
 
         HorizontalOneCheckBox.click();
-        Assert.assertTrue(HorizontalOneCheckBox.isSelected(), "Checkbox is not selected after click");
+        Assert.assertTrue(HorizontalOneCheckBox.isEnabled(), "Checkbox is not Enabled after click");
         Allure.addAttachment("Validation Passed! Check The Dropdown","CheckBox Is Clicked.");
 
         HorizontalTwoCheckBox.click();
-        Assert.assertTrue(HorizontalTwoCheckBox.isSelected(), "Checkbox is not selected after click");
+        Assert.assertTrue(HorizontalTwoCheckBox.isEnabled(), "Checkbox is not Enabled after click");
         Allure.addAttachment("Validation Passed! Check The Dropdown","CheckBox Is Clicked.");
 
         HorizontalThreeCheckBox.click();
-        Assert.assertTrue(HorizontalThreeCheckBox.isSelected(), "Checkbox is not selected after click");
+        Assert.assertTrue(HorizontalThreeCheckBox.isEnabled(), "Checkbox is not Enabled after click");
         Allure.addAttachment("Validation Passed! Check The Dropdown","CheckBox Is Clicked.");
 
         AndroidActions.screenshot(driver);

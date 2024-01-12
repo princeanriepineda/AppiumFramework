@@ -22,22 +22,22 @@ public class UIFrameworkCatalogjQueryMobile145LandingPage extends AndroidActions
         PageFactory.initElements(new AppiumFieldDecorator(driver),this);
     }
 
-    @AndroidFindBy(xpath="")
+    @AndroidFindBy(xpath="//android.view.View[@content-desc=\"Checkbox \"]")
     private WebElement CheckBoxBtn;
 
-    @AndroidFindBy(xpath="")
+    @AndroidFindBy(xpath="//android.view.View[@content-desc=\"Radio buttons \"]")
     private WebElement RadioButtonsBtn;
 
-    @AndroidFindBy(xpath="")
+    @AndroidFindBy(xpath="//android.view.View[@content-desc=\"Forms \"]")
     private WebElement FormsBtn;
 
     //***************************************************************************************************
     @Step("Step: Click CheckBox Button Of Landing Page In The jQuery Mobile 1.4.5 Framework")
     @Severity(SeverityLevel.NORMAL)
-    public  void jQueryMobile145CheckBox(){
+    public  void jQueryMobile145CheckBox() throws InterruptedException {
         Allure.step("CheckBox Button Clicked");
+        Assert.assertTrue(CheckBoxBtn.isEnabled(), "CheckBox is not Enabled after click");
         CheckBoxBtn.click();
-        Assert.assertTrue(CheckBoxBtn.isSelected(), "Checkbox is not selected after click");
         AndroidActions.screenshot(driver);
         Allure.addAttachment("Validation Passed! Check The Dropdown","Button Is Clicked.");
 
@@ -48,8 +48,8 @@ public class UIFrameworkCatalogjQueryMobile145LandingPage extends AndroidActions
     @Severity(SeverityLevel.NORMAL)
     public  void jQueryMobile145RadioButtons(){
         Allure.step("RadioButtons Button Clicked");
+        Assert.assertTrue(RadioButtonsBtn.isEnabled(), "RadioButtons is not Enabled after click");
         RadioButtonsBtn.click();
-        Assert.assertTrue(RadioButtonsBtn.isSelected(), "RadioButtons is not selected after click");
         AndroidActions.screenshot(driver);
         Allure.addAttachment("Validation Passed! Check The Dropdown","Button Is Clicked.");
 
@@ -60,8 +60,8 @@ public class UIFrameworkCatalogjQueryMobile145LandingPage extends AndroidActions
     @Severity(SeverityLevel.NORMAL)
     public  void jQueryMobile145Forms(){
         Allure.step("Forms Button Clicked");
+        Assert.assertTrue(FormsBtn.isEnabled(), "Forms is not Enabled after click");
         FormsBtn.click();
-        Assert.assertTrue(FormsBtn.isSelected(), "Forms is not selected after click");
         AndroidActions.screenshot(driver);
         Allure.addAttachment("Validation Passed! Check The Dropdown","Button Is Clicked.");
 

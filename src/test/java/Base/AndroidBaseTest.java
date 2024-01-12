@@ -63,20 +63,20 @@ public class AndroidBaseTest extends AppiumUtils {
         UIFCjQueryMobileCheckBoxP = new UIFrameworkCatalogjQueryMobile145CheckboxPage(driver);
         UIFCjQueryMobileRadioButtonP = new UIFrameworkCatalogjQueryMobile145RadioButtonsPage(driver);
         UIFCjQueryMobileFormsP = new UIFrameworkCatalogjQueryMobile145FormsPage(driver);
-        UIFCPhononLP = new UIFrameworkCatalogPhonon131LandingPage(driver);
-        UIFCPhononPopoversP = new UIFrameworkCatalogPhonon131PopoversPage(driver);
-        UIFCFramework7MaterialLP =  new UIFrameworkCatalogFramework7Material140LandingPage(driver);
-        UIFCFramework7MaterialLoginscreenP = new UIFrameworkCatalogFramework7Material140LoginScreenPage(driver);
-        UIFCFramework7MaterialSignInP = new UIFrameworkCatalogFramework7Material140SignInPage(driver);
-        UIFCFramework7MaterialFormsP = new UIFrameworkCatalogFramework7Material140FormsPage(driver);
-        UIFCFramework7MaterialFormsStorageP = new UIFrameworkCatalogFramework7Material140FormStoragePage(driver);
+//        UIFCPhononLP = new UIFrameworkCatalogPhonon131LandingPage(driver);
+//        UIFCPhononPopoversP = new UIFrameworkCatalogPhonon131PopoversPage(driver);
+//        UIFCFramework7MaterialLP =  new UIFrameworkCatalogFramework7Material140LandingPage(driver);
+//        UIFCFramework7MaterialLoginscreenP = new UIFrameworkCatalogFramework7Material140LoginScreenPage(driver);
+//        UIFCFramework7MaterialSignInP = new UIFrameworkCatalogFramework7Material140SignInPage(driver);
+//        UIFCFramework7MaterialFormsP = new UIFrameworkCatalogFramework7Material140FormsPage(driver);
+//        UIFCFramework7MaterialFormsStorageP = new UIFrameworkCatalogFramework7Material140FormStoragePage(driver);
 
     }
-    @AfterMethod
-    public void EndTest(){
-        service.stop();
-        driver.quit();
-    }
+//    @AfterMethod
+//    public void EndTest(){
+//        service.stop();
+//        driver.quit();
+//    }
     public Double getFormattedAmount(String amount){
         Double price = Double.parseDouble(amount.substring(1));
         return price;

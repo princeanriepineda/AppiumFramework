@@ -24,6 +24,7 @@ public class GeneralStoreFormPage extends AndroidActions {
         PageFactory.initElements(new AppiumFieldDecorator(driver),this);
     }
 
+
     @AndroidFindBy(xpath = "//android.widget.Spinner[@resource-id=\"com.androidsample.generalstore:id/spinnerCountry\"]")
     private  WebElement listView;
     @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"com.androidsample.generalstore:id/btnLetsShop\"]")
