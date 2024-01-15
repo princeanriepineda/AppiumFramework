@@ -46,18 +46,18 @@ public class UIFrameworkCatalogjQueryMobile145RadioButtonsPage extends AndroidAc
     public void jQueryMobile145RadioButtonsVertical(){
         Allure.step("Vertical Radio Buttons Clicked");
 
+        Assert.assertTrue(VerticalThreeRadioButton.isEnabled(), "RadioButton is not enabled");
         VerticalThreeRadioButton.click();
-        Assert.assertTrue(VerticalThreeRadioButton.isEnabled(), "RadioButton is not enabled after click");
         AndroidActions.screenshot(driver);
         Allure.addAttachment("Validation Passed For Vertical Three Radio Button! Check The Dropdown", "RadioButton Is Clicked.");
 
+        Assert.assertTrue(VerticalTwoRadioButton.isEnabled(), "RadioButton is not enabled");
         VerticalTwoRadioButton.click();
-        Assert.assertTrue(VerticalTwoRadioButton.isEnabled(), "RadioButton is not enabled after click");
         AndroidActions.screenshot(driver);
         Allure.addAttachment("Validation Passed For Vertical Two Radio Button! Check The Dropdown", "RadioButton Is Clicked.");
 
+        Assert.assertTrue(VerticalOneRadioButton.isEnabled(), "RadioButton is not enabled");
         VerticalOneRadioButton.click();
-        Assert.assertTrue(VerticalOneRadioButton.isEnabled(), "RadioButton is not enabled after click");
         AndroidActions.screenshot(driver);
         Allure.addAttachment("Validation Passed For Vertical One Radio Button! Check The Dropdown", "RadioButton Is Clicked.");
 
@@ -70,18 +70,18 @@ public class UIFrameworkCatalogjQueryMobile145RadioButtonsPage extends AndroidAc
     public void jQueryMobile145RadioButtonsHorizontal(){
         Allure.step("Horizontal Radio Buttons Clicked");
 
+        Assert.assertTrue(HorizontalThreeRadioButton.isEnabled(), "RadioButton is not enabled");
         HorizontalThreeRadioButton.click();
-        Assert.assertTrue(HorizontalThreeRadioButton.isEnabled(), "RadioButton is not enabled after click");
         AndroidActions.screenshot(driver);
         Allure.addAttachment("Validation Passed For Horizontal Three Radio Button! Check The Dropdown", "RadioButton Is Clicked.");
 
+        Assert.assertTrue(HorizontalTwoRadioButton.isEnabled(), "RadioButton is not enabled");
         HorizontalTwoRadioButton.click();
-        Assert.assertTrue(HorizontalTwoRadioButton.isEnabled(), "RadioButton is not enabled after click");
         AndroidActions.screenshot(driver);
         Allure.addAttachment("Validation Passed For Horizontal Two Radio Button! Check The Dropdown", "RadioButton Is Clicked.");
 
+        Assert.assertTrue(HorizontalOneRadioButton.isEnabled(), "RadioButton is not enabled");
         HorizontalOneRadioButton.click();
-        Assert.assertTrue(HorizontalOneRadioButton.isEnabled(), "RadioButton is not enabled after click");
         AndroidActions.screenshot(driver);
         Allure.addAttachment("Validation Passed For Horizontal One Radio Button! Check The Dropdown", "RadioButton Is Clicked.");
 

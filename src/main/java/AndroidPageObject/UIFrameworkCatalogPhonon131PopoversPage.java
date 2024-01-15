@@ -12,6 +12,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 public class UIFrameworkCatalogPhonon131PopoversPage extends AndroidActions {
@@ -24,7 +25,7 @@ public class UIFrameworkCatalogPhonon131PopoversPage extends AndroidActions {
         PageFactory.initElements(new AppiumFieldDecorator(driver),this);
     }
 
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//android.widget.Button[@content-desc=\"SELECT\"]")
     private WebElement SelectDrpDwn;
 
     //***************************************************************************************************
@@ -34,7 +35,7 @@ public class UIFrameworkCatalogPhonon131PopoversPage extends AndroidActions {
         Allure.step("Phonon 1.3.1 Select Drop Down List Selected");
         SelectDrpDwn.click();
         driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\""+Select+"\"))"));
-        String itemXPath = "//android.widget.TextView[@resource-id='android:id/text1' and @text='"+Select+"']";
+        String itemXPath = "//android.widget.Button[@content-desc=\"ITEM 1\"]";
         WebElement listItem = driver.findElement(By.xpath(itemXPath));
         listItem.click();
         String ActualSelectedItem = listItem.getText();

@@ -36,7 +36,7 @@ public class UIFrameworkCatalogjQueryMobile145LandingPage extends AndroidActions
     @Severity(SeverityLevel.NORMAL)
     public  void jQueryMobile145CheckBox() throws InterruptedException {
         Allure.step("CheckBox Button Clicked");
-        Assert.assertTrue(CheckBoxBtn.isEnabled(), "CheckBox is not Enabled after click");
+        Assert.assertTrue(CheckBoxBtn.isEnabled(), "CheckBox is not Enabled");
         CheckBoxBtn.click();
         AndroidActions.screenshot(driver);
         Allure.addAttachment("Validation Passed! Check The Dropdown","Button Is Clicked.");
@@ -48,7 +48,7 @@ public class UIFrameworkCatalogjQueryMobile145LandingPage extends AndroidActions
     @Severity(SeverityLevel.NORMAL)
     public  void jQueryMobile145RadioButtons(){
         Allure.step("RadioButtons Button Clicked");
-        Assert.assertTrue(RadioButtonsBtn.isEnabled(), "RadioButtons is not Enabled after click");
+        Assert.assertTrue(RadioButtonsBtn.isEnabled(), "RadioButtons is not Enabled");
         RadioButtonsBtn.click();
         AndroidActions.screenshot(driver);
         Allure.addAttachment("Validation Passed! Check The Dropdown","Button Is Clicked.");
@@ -60,7 +60,7 @@ public class UIFrameworkCatalogjQueryMobile145LandingPage extends AndroidActions
     @Severity(SeverityLevel.NORMAL)
     public  void jQueryMobile145Forms(){
         Allure.step("Forms Button Clicked");
-        Assert.assertTrue(FormsBtn.isEnabled(), "Forms is not Enabled after click");
+        Assert.assertTrue(FormsBtn.isEnabled(), "Forms is not Enabled");
         FormsBtn.click();
         AndroidActions.screenshot(driver);
         Allure.addAttachment("Validation Passed! Check The Dropdown","Button Is Clicked.");

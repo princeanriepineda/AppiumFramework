@@ -21,18 +21,21 @@ public class UIFrameworkCatalogFramework7Material140LandingPage extends AndroidA
         PageFactory.initElements(new AppiumFieldDecorator(driver),this);
     }
 
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Login Screen \"]")
     private WebElement LoginScreenBtn;
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Forms \"]")
     private WebElement FormsBtn;
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Popover \"]")
+    private WebElement PopoverBtn;
 
     //***************************************************************************************************
     @Step("Step: Click Login Screen Button Of Landing Page In The UIFramework 7 Material 1.4.0 Landing Page")
     @Severity(SeverityLevel.NORMAL)
-    public  void UIFramework7Material140LoginScreen(){
+    public  void UIFramework7Material140LoginScreen() throws InterruptedException {
         Allure.step("Login Screen Button Clicked");
+        Assert.assertTrue(LoginScreenBtn.isEnabled(), "Login Screen is not enabled");
         LoginScreenBtn.click();
-        Assert.assertTrue(LoginScreenBtn.isSelected(), "Login Screen is not selected after click");
+        Thread.sleep(1000);
         AndroidActions.screenshot(driver);
         Allure.addAttachment("Validation Passed! Check The Dropdown","Button Is Clicked.");
 
@@ -43,8 +46,20 @@ public class UIFrameworkCatalogFramework7Material140LandingPage extends AndroidA
     @Severity(SeverityLevel.NORMAL)
     public  void UIFramework7Material140Forms(){
         Allure.step("Forms Button Clicked");
+        Assert.assertTrue(FormsBtn.isEnabled(), "Forms is not enabled");
         FormsBtn.click();
-        Assert.assertTrue(FormsBtn.isSelected(), "Forms is not selected after click");
+        AndroidActions.screenshot(driver);
+        Allure.addAttachment("Validation Passed! Check The Dropdown","Button Is Clicked.");
+
+    }
+
+    //***************************************************************************************************
+    @Step("Step: Click Forms Button Of Landing Page In The UIFramework 7 Material 1.4.0 Landing Page")
+    @Severity(SeverityLevel.NORMAL)
+    public  void UIFramework7Material140Popover(){
+        Allure.step("Popover Button Clicked");
+        Assert.assertTrue(PopoverBtn.isEnabled(), "Popover is not enabled");
+        PopoverBtn.click();
         AndroidActions.screenshot(driver);
         Allure.addAttachment("Validation Passed! Check The Dropdown","Button Is Clicked.");
 

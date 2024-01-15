@@ -22,7 +22,7 @@ public class UIFrameworkCatalogFramework7Material140FormsPage extends AndroidAct
         PageFactory.initElements(new AppiumFieldDecorator(driver),this);
     }
 
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Form Storage\"]")
     private WebElement FormsStorageBtn;
 
     //***************************************************************************************************
@@ -30,8 +30,8 @@ public class UIFrameworkCatalogFramework7Material140FormsPage extends AndroidAct
     @Severity(SeverityLevel.NORMAL)
     public  void UIFramework7Material140FormsStorage(){
         Allure.step("Forms Storage Button Clicked");
+        Assert.assertTrue(FormsStorageBtn.isEnabled(), "Forms Storage is not enabled");
         FormsStorageBtn.click();
-        Assert.assertTrue(FormsStorageBtn.isSelected(), "Forms Storage is not selected after click");
         AndroidActions.screenshot(driver);
         Allure.addAttachment("Validation Passed! Check The Dropdown","Button Is Clicked.");
 

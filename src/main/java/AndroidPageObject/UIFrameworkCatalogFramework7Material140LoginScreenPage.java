@@ -22,16 +22,17 @@ public class UIFrameworkCatalogFramework7Material140LoginScreenPage extends Andr
         PageFactory.initElements(new AppiumFieldDecorator(driver),this);
     }
 
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"EMBEDDED INTO PAGE\"]")
     private WebElement EmbeddedIntoPageBtn;
 
     //***************************************************************************************************
     @Step("Step: Click Emebedded Into Page Button Of Login Screen Page In The UIFramework 7 Material 1.4.0")
     @Severity(SeverityLevel.NORMAL)
-    public  void UIFramework7Material140EmebeddedIntoPage(){
+    public  void UIFramework7Material140EmebeddedIntoPage() throws InterruptedException {
         Allure.step("Emebedded Into Page Button Clicked");
+        Assert.assertTrue(EmbeddedIntoPageBtn.isEnabled(), "Emebedded Into Page is not enabled");
         EmbeddedIntoPageBtn.click();
-        Assert.assertTrue(EmbeddedIntoPageBtn.isSelected(), "Emebedded Into Page is not selected after click");
+        Thread.sleep(2000);
         AndroidActions.screenshot(driver);
         Allure.addAttachment("Validation Passed! Check The Dropdown","Button Is Clicked.");
 

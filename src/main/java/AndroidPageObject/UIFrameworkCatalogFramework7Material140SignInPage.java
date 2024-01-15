@@ -8,6 +8,7 @@ import io.qameta.allure.Allure;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -22,15 +23,15 @@ public class UIFrameworkCatalogFramework7Material140SignInPage extends AndroidAc
         PageFactory.initElements(new AppiumFieldDecorator(driver),this);
     }
 
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"Your username\"]")
     private WebElement UsernameTextBox;
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"Your password\"]")
     private WebElement PasswordTextBox;
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"SIGN IN\"]")
     private WebElement SignInBtn;
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Username: , password:\"]")
     private WebElement SignInTxtModal;
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"OK\"]")
     private WebElement SignInOkBtnModal;
 
     //***************************************************************************************************
@@ -39,14 +40,17 @@ public class UIFrameworkCatalogFramework7Material140SignInPage extends AndroidAc
     public  void UIFramework7Material140InputSignInDetails(String Username, String Password){
         Allure.step("Input Username And Password Details In Sign-In ");
         UsernameTextBox.sendKeys(Username);
-        String ActualUsernameInput = UsernameTextBox.getAttribute("value");
         PasswordTextBox.sendKeys(Password);
-        String ActualPasswordInput = PasswordTextBox.getAttribute("value");
+        AndroidActions.screenshot(driver);
         SignInBtn.click();
-        String ActualSignInTxtmodal = SignInTxtModal.getText();
+
+        String ActualSignInTxtModalXpath= "//android.view.View[@content-desc=\"Username: "+Username+", password: "+Password+"\"]";
+        WebElement ActualSignInTxtModalElement = driver.findElement(By.xpath(ActualSignInTxtModalXpath));
+
+        String ActualSignInTxtmodal = ActualSignInTxtModalElement.getAttribute("content-desc");
         AndroidActions.screenshot(driver);
         Assert.assertEquals(ActualSignInTxtmodal,"Username: "+Username+", password: "+Password);
-        Allure.addAttachment("Username and Password Injected Check The Dropdown For Actual Values","Actual Username And Password: "+ActualUsernameInput+", "+ActualPasswordInput);
+        Allure.addAttachment("Username and Password Injected Check The Dropdown For Actual Values","Actual Username And Password: "+Username+", "+Password);
 
         //************************************************************************************************
         Allure.step("Click Ok Button Of The Modal");

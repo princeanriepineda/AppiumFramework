@@ -1,5 +1,7 @@
 package TestCases;
 
+import AndroidPageObject.UIFrameworkCatalogFramework7Material140LandingPage;
+import AndroidPageObject.UIFrameworkCatalogOnsenUI200beta5ListPage;
 import Base.AndroidBaseTest;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
@@ -35,26 +37,23 @@ public class AndroidUICatalogInputForms_TestCases extends AndroidBaseTest {
         UIFCjQueryMobileFormsP.jQueryMobile145NativeSelectDrpdwn("Three");
         driver.navigate().back();
         driver.navigate().back();
-//        //******************************************************************************
-//        UIFCLP.SelectFramework("Phonon 1.3.1");
-//        UIFCPhononLP.Phonon131Popovers();
-//        UIFCPhononPopoversP.Phonon131SelectDrpdwn("Item 4");
-//        driver.navigate().back();
-//        driver.navigate().back();
-//        //*******************************************************************************
-//        UIFCLP.SelectFramework("Framework7 Material 1.4.0");
-//        UIFCFramework7MaterialLP.UIFramework7Material140LoginScreen();
-//        UIFCFramework7MaterialLoginscreenP.UIFramework7Material140EmebeddedIntoPage();
-//        UIFCFramework7MaterialSignInP.UIFramework7Material140InputSignInDetails("Pedro","123");
-//        driver.navigate().back();
-//        //*******************************************************************************
-//        UIFCLP.SelectFramework("Framework7 Material 1.4.0");
-//        UIFCFramework7MaterialLP.UIFramework7Material140Forms();
-//        UIFCFramework7MaterialFormsP.UIFramework7Material140FormsStorage();
-//        UIFCFramework7MaterialFormsStorageP.Framework7Material140InputDetailsFormStorage
-//                ("Pedro","Pedro@Hotmail.com","www.google.com","1234",
-//                        "091234567", "I'm fine! I'm Happy",
-//                        "Female",1,"Movies");
-//        driver.navigate().back();
+        //******************************************************************************
+        UIFCLP.SelectFramework("OnsenUI 2.0.0 beta5");
+        UIFCOnsenUIBeta5LP.OnsenUI200beta5List();
+        UIFCOnsenUIBeta5ListP.OnsenUI200beta5ListScroll();
+        driver.navigate().back();
+        driver.navigate().back();
+        //*******************************************************************************
+        UIFCLP.SelectFramework("Framework7 Material 1.4.0");
+        UIFCFramework7MaterialLP.UIFramework7Material140LoginScreen();
+        UIFCFramework7MaterialLoginscreenP.UIFramework7Material140EmebeddedIntoPage();
+        UIFCFramework7MaterialSignInP.UIFramework7Material140InputSignInDetails("Pedro","123");
+        driver.navigate().back();
+        //*******************************************************************************
+        UIFCLP.SelectFramework("Phonon 1.3.1");
+        UIFCPhononLP.Phonon131Forms();
+        UIFCPhononFormsP.Phonon131FormsInputDetails("Pedro Calungsod","Radio1");
+        driver.navigate().back();
+        driver.navigate().back();
     }
 }

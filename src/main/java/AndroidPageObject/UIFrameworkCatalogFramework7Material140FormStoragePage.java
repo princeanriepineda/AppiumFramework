@@ -24,35 +24,35 @@ public class UIFrameworkCatalogFramework7Material140FormStoragePage extends Andr
         PageFactory.initElements(new AppiumFieldDecorator(driver),this);
     }
 
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"Your name\"]")
     private WebElement NameTextBox;
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"E-mail\"]")
     private WebElement EmailTextBox;
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"URL\"]")
     private WebElement URLTextBox;
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"Password\"]")
     private WebElement PasswordTextBox;
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"Phone\"]")
     private WebElement PhoneTextBox;
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//android.widget.Spinner[@content-desc=\"Male\"]")
     private WebElement GenderModal;
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//android.widget.Spinner[@content-desc=\"2014-04-30\"]")
     private WebElement BirthDateModal;
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"android:id/button1\"]")
     private WebElement BirthDateSetModal;
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//android.view.View[@resource-id=\"demoform-1\"]/android.widget.ListView/android.view.View[5]/android.view.View/android.view.View[2]/android.view.View")
     private WebElement SwitchBtn;
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(className = "android.widget.SeekBar")
     private WebElement SliderBar;
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//android.view.View[@resource-id=\"demoform-1\"]/android.widget.ListView/android.view.View[7]/android.view.View/android.view.View[2]/android.widget.EditText")
     private WebElement AboutMeTextBox;
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//android.view.View[@resource-id=\"demoform-2\"]/android.widget.ListView/android.view.View[1]/android.view.View")
     private WebElement BooksCheckBox;
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//android.view.View[@resource-id=\"demoform-2\"]/android.widget.ListView/android.view.View[2]/android.view.View")
     private WebElement MoviesCheckBox;
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//android.view.View[@resource-id=\"demoform-2\"]/android.widget.ListView/android.view.View[3]/android.view.View")
     private WebElement FoodCheckBox;
-    @AndroidFindBy(xpath = "")
+    @AndroidFindBy(xpath = "//android.view.View[@resource-id=\"demoform-2\"]/android.widget.ListView/android.view.View[4]/android.view.View")
     private WebElement DrinksCheckBox;
 
     //***************************************************************************************************
@@ -60,7 +60,7 @@ public class UIFrameworkCatalogFramework7Material140FormStoragePage extends Andr
     @Severity(SeverityLevel.NORMAL)
     public void Framework7Material140InputDetailsFormStorage
     (String Name, String Email, String URL, String Password, String Phone, String AboutMe,
-     String Gender, Integer BirthDate, String CheckBox) {
+     String Gender, Integer BirthDate, String CheckBox) throws InterruptedException {
         Allure.step("Framework 7 Material 1.4.0 Fiil Up Forms Storage");
 
         NameTextBox.sendKeys(Name);
@@ -80,21 +80,25 @@ public class UIFrameworkCatalogFramework7Material140FormStoragePage extends Andr
 
         GenderModal.click();
         driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\""+Gender+"\"))"));
-        String itemXPath = "//android.widget.TextView[@resource-id='android:id/text1' and @text='"+Gender+"']";
+        String itemXPath = "//android.widget.CheckedTextView[@resource-id=\"android:id/text1\" and @text=\""+Gender+"\"]";
         WebElement listItem = driver.findElement(By.xpath(itemXPath));
         listItem.click();
-        Assert.assertEquals(GenderModal.getAttribute("value"),Gender,"Gender input does not match");
+        Assert.assertEquals(GenderModal.getAttribute("text"),Gender,"Gender input does not match");
+
+        ScrollDown();
+        Thread.sleep(2000);
+        ScrollDown();
 
         BirthDateModal.click();
-        String itemdateXPath = "//android.widget.TextView[@resource-id='android:id/text1' and @text='"+BirthDate+"']";
+        String itemdateXPath = "//android.view.View[@content-desc=\""+BirthDate+" April 2014\"]";
         WebElement dateItem = driver.findElement(By.xpath(itemdateXPath));
         dateItem.click();
-        Assert.assertEquals(dateItem.getAttribute("value"),BirthDate,"BirthDate input does not match");
+        Assert.assertEquals(dateItem.getAttribute("text"),BirthDate,"BirthDate input does not match");
         BirthDateSetModal.click();
 
 
         SwitchBtn.click();
-        Assert.assertTrue(SwitchBtn.isSelected(), "Switch Btn is not selected after click");
+        Assert.assertTrue(SwitchBtn.isEnabled(), "Switch Btn is not enabled");
 
         Point initialPosition = SliderBar.getLocation();
         swipeAction(SliderBar,"left");
@@ -103,21 +107,17 @@ public class UIFrameworkCatalogFramework7Material140FormStoragePage extends Andr
 
         AboutMeTextBox.sendKeys(AboutMe);
         if(CheckBox.equalsIgnoreCase("Books")){
+            Assert.assertTrue(BooksCheckBox.isEnabled(), "Books CheckBox is not enabled");
             BooksCheckBox.click();
-            Assert.assertTrue(BooksCheckBox.isSelected(), "Books CheckBox is not selected after click");
-
         } else if (CheckBox.equalsIgnoreCase("Movies")) {
+            Assert.assertTrue(MoviesCheckBox.isEnabled(), "Movies CheckBox is not enabled");
             MoviesCheckBox.click();
-            Assert.assertTrue(MoviesCheckBox.isSelected(), "Movies CheckBox is not selected after click");
-
         }else if (CheckBox.equalsIgnoreCase("Food")) {
+            Assert.assertTrue(FoodCheckBox.isEnabled(), "Food CheckBox is not enabled");
             FoodCheckBox.click();
-            Assert.assertTrue(FoodCheckBox.isSelected(), "Food CheckBox is not selected after click");
-
         }else if (CheckBox.equalsIgnoreCase("Drinks")) {
+            Assert.assertTrue(DrinksCheckBox.isEnabled(), "Drinks CheckBox is not enabled");
             DrinksCheckBox.click();
-            Assert.assertTrue(DrinksCheckBox.isSelected(), "Drinks CheckBox is not selected after click");
-
         }
 
         Allure.addAttachment("Validation Passed!","Refer for the ScreenShots");

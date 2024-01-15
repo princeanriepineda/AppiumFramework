@@ -32,7 +32,9 @@ public class AndroidBaseTest extends AppiumUtils {
     public UIFrameworkCatalogFramework7Material140SignInPage UIFCFramework7MaterialSignInP;
     public UIFrameworkCatalogFramework7Material140FormsPage UIFCFramework7MaterialFormsP;
     public UIFrameworkCatalogFramework7Material140FormStoragePage UIFCFramework7MaterialFormsStorageP;
-
+    public UIFrameworkCatalogOnsenUI200beta5LandingPage UIFCOnsenUIBeta5LP;
+    public UIFrameworkCatalogOnsenUI200beta5ListPage UIFCOnsenUIBeta5ListP;
+    public UIFrameworkCatalogPhonon131FormsPage UIFCPhononFormsP;
 
 
 
@@ -63,13 +65,16 @@ public class AndroidBaseTest extends AppiumUtils {
         UIFCjQueryMobileCheckBoxP = new UIFrameworkCatalogjQueryMobile145CheckboxPage(driver);
         UIFCjQueryMobileRadioButtonP = new UIFrameworkCatalogjQueryMobile145RadioButtonsPage(driver);
         UIFCjQueryMobileFormsP = new UIFrameworkCatalogjQueryMobile145FormsPage(driver);
-//        UIFCPhononLP = new UIFrameworkCatalogPhonon131LandingPage(driver);
-//        UIFCPhononPopoversP = new UIFrameworkCatalogPhonon131PopoversPage(driver);
-//        UIFCFramework7MaterialLP =  new UIFrameworkCatalogFramework7Material140LandingPage(driver);
-//        UIFCFramework7MaterialLoginscreenP = new UIFrameworkCatalogFramework7Material140LoginScreenPage(driver);
-//        UIFCFramework7MaterialSignInP = new UIFrameworkCatalogFramework7Material140SignInPage(driver);
-//        UIFCFramework7MaterialFormsP = new UIFrameworkCatalogFramework7Material140FormsPage(driver);
-//        UIFCFramework7MaterialFormsStorageP = new UIFrameworkCatalogFramework7Material140FormStoragePage(driver);
+        UIFCPhononLP = new UIFrameworkCatalogPhonon131LandingPage(driver);
+        UIFCPhononPopoversP = new UIFrameworkCatalogPhonon131PopoversPage(driver);
+        UIFCOnsenUIBeta5LP = new UIFrameworkCatalogOnsenUI200beta5LandingPage(driver);
+        UIFCOnsenUIBeta5ListP = new UIFrameworkCatalogOnsenUI200beta5ListPage(driver);
+        UIFCFramework7MaterialLP =  new UIFrameworkCatalogFramework7Material140LandingPage(driver);
+        UIFCFramework7MaterialLoginscreenP = new UIFrameworkCatalogFramework7Material140LoginScreenPage(driver);
+        UIFCFramework7MaterialSignInP = new UIFrameworkCatalogFramework7Material140SignInPage(driver);
+        UIFCFramework7MaterialFormsP = new UIFrameworkCatalogFramework7Material140FormsPage(driver);
+        UIFCFramework7MaterialFormsStorageP = new UIFrameworkCatalogFramework7Material140FormStoragePage(driver);
+        UIFCPhononFormsP = new UIFrameworkCatalogPhonon131FormsPage(driver);
 
     }
 //    @AfterMethod
