@@ -11,6 +11,8 @@ import io.qameta.allure.Attachment;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.RemoteWebElement;
 
+
+
 import java.time.Duration;
 
 public class AndroidActions extends AppiumUtils{
@@ -29,12 +31,12 @@ public class AndroidActions extends AppiumUtils{
         // Validate whether the x-coordinate changes after the swipe
         return initialPosition.getX() != finalPosition.getX();
     }
-    public  void DragAndDrop(WebElement ele, String directionX, String directionY) throws InterruptedException {
+    public  void DragAndDrop(WebElement ele, int directionX, int directionY) throws InterruptedException {
         // Java
         ((JavascriptExecutor) driver).executeScript("mobile: dragGesture", ImmutableMap.of(
                 "elementId", ((RemoteWebElement) ele).getId(),
-                "endX", 626,
-                "endY", 564
+                "endX", directionX,
+                "endY", directionY
         ));
         Thread.sleep(3000);
     }
@@ -72,6 +74,7 @@ public class AndroidActions extends AppiumUtils{
         while (canScrollMore);
         Thread.sleep(2000);
     }
+
 
 
 

@@ -8,7 +8,7 @@
             </run>
         </groups>
         <classes>
-            <class name="TestCases.ecommerceapp_testcase4">
+            <class name="TestCases.Androidecommerceapp_testcase4">
                 <methods>
                     <include name="FillForm"/>
                 </methods>

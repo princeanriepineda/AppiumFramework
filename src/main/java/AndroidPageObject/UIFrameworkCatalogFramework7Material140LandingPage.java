@@ -27,6 +27,16 @@ public class UIFrameworkCatalogFramework7Material140LandingPage extends AndroidA
     private WebElement FormsBtn;
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Popover \"]")
     private WebElement PopoverBtn;
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Autocomplete \"]")
+    private WebElement AutocompleteBtn;
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Contacts List \"]")
+    private WebElement ContactListBtn;
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Search Bar \"]")
+    private WebElement SearchBarBtn;
+    @AndroidFindBy(xpath = "(//android.view.View[@content-desc=\"index\"])[2]")
+    private WebElement HamburgerBtn;
+
+
 
     //***************************************************************************************************
     @Step("Step: Click Login Screen Button Of Landing Page In The UIFramework 7 Material 1.4.0 Landing Page")
@@ -64,4 +74,56 @@ public class UIFrameworkCatalogFramework7Material140LandingPage extends AndroidA
         Allure.addAttachment("Validation Passed! Check The Dropdown","Button Is Clicked.");
 
     }
+
+    //***************************************************************************************************
+    @Step("Step: Click AutoComplete Button Of Landing Page In The UIFramework 7 Material 1.4.0 Landing Page")
+    @Severity(SeverityLevel.NORMAL)
+    public  void UIFramework7Material140AutoComplete(){
+        Allure.step("AutoComplete Button Clicked");
+        Assert.assertTrue(AutocompleteBtn.isEnabled(), "AutoComplete is not enabled");
+        AutocompleteBtn.click();
+        AndroidActions.screenshot(driver);
+        Allure.addAttachment("Validation Passed! Check The Dropdown","Button Is Clicked.");
+
+    }
+
+    //***************************************************************************************************
+    @Step("Step: Click Contact List Button Of Landing Page In The UIFramework 7 Material 1.4.0 Landing Page")
+    @Severity(SeverityLevel.NORMAL)
+    public  void UIFramework7Material140ContactList(){
+        Allure.step("AutoComplete Button Clicked");
+        Assert.assertTrue(ContactListBtn.isEnabled(), "Contact List is not enabled");
+        ContactListBtn.click();
+        AndroidActions.screenshot(driver);
+        Allure.addAttachment("Validation Passed! Check The Dropdown","Button Is Clicked.");
+
+    }
+
+    //***************************************************************************************************
+    @Step("Step: Click Search Bar Button Of Landing Page In The UIFramework 7 Material 1.4.0 Landing Page")
+    @Severity(SeverityLevel.NORMAL)
+    public  void UIFramework7Material140SearchBar() throws InterruptedException {
+        Allure.step("Search Bar Button Clicked");
+        Assert.assertTrue(SearchBarBtn.isEnabled(), "Search Bar is not enabled");
+        ScrollDown();
+        SearchBarBtn.click();
+        AndroidActions.screenshot(driver);
+        Allure.addAttachment("Validation Passed! Check The Dropdown","Button Is Clicked.");
+
+    }
+
+    //***************************************************************************************************
+    @Step("Step: Click Hamburger Button Of Landing Page In The UIFramework 7 Material 1.4.0 Landing Page")
+    @Severity(SeverityLevel.NORMAL)
+    public  void UIFramework7Material140HamburgerBtn() throws InterruptedException {
+        Allure.step("Hamburger Button Clicked");
+        Assert.assertTrue(HamburgerBtn.isEnabled(), "Hamburger Bar is not enabled");
+        HamburgerBtn.click();
+        Thread.sleep(1000);
+        AndroidActions.screenshot(driver);
+        Allure.addAttachment("Validation Passed! Check The Dropdown","Button Is Clicked.");
+
+    }
+
+
 }

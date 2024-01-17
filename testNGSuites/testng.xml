@@ -3,17 +3,17 @@
 <suite name="All Test Suite" thread-count="2">
     <test verbose="2" preserve-order="true" name="C:/Users/Prince Pineda/IdeaProjects/AppiumTrainingHybridFramework">
         <classes>
-            <class name="TestCases.GeneralStore_RegistrationTestcase">
+            <class name="TestCases.AndroidGeneralStore_RegistrationTestcase">
                 <methods>
                     <include name="FillForm"/>
                 </methods>
             </class>
-            <class name="TestCases.ecommerceapp_testcase4">
+            <class name="TestCases.Androidecommerceapp_testcase4">
                 <methods>
                     <include name="FillForm"/>
                 </methods>
             </class>
-            <class name="TestCases.ecommerceapp_testcase2">
+            <class name="TestCases.Androidecommerceapp_testcase2">
                 <methods>
                     <include name="FillFormPostiveFlow"/>
                     <include name="FillFormErrorScenario"/>

@@ -25,6 +25,8 @@ public class UIFrameworkCatalogPhonon131LandingPage extends AndroidActions {
     private WebElement PopoversBtn;
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Forms\"]")
     private WebElement FormsBtn;
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Dialogs\"]")
+    private WebElement DialogsBtn;
 
     //***************************************************************************************************
     @Step("Step: Click Popovers Button Of Landing Page In The Phonon 1.3.1 Framework")
@@ -51,5 +53,17 @@ public class UIFrameworkCatalogPhonon131LandingPage extends AndroidActions {
 
     }
 
+    //***************************************************************************************************
+    @Step("Step: Click Dialogs Button Of Landing Page In The Phonon 1.3.1 Framework")
+    @Severity(SeverityLevel.NORMAL)
+    public  void Phonon131Dialogs() throws InterruptedException {
+        Allure.step("Dialogs Button Clicked");
+        Assert.assertTrue(DialogsBtn.isEnabled(), "Dialogs is not enabled");
+        DialogsBtn.click();
+        Thread.sleep(2000);
+        AndroidActions.screenshot(driver);
+        Allure.addAttachment("Validation Passed! Check The Dropdown","Button Is Clicked.");
+
+    }
 
 }

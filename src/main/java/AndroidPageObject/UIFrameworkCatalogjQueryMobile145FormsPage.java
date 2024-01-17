@@ -14,6 +14,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import java.util.List;
+
+
 public class UIFrameworkCatalogjQueryMobile145FormsPage extends AndroidActions {
 
     AndroidDriver driver;
@@ -26,6 +29,8 @@ public class UIFrameworkCatalogjQueryMobile145FormsPage extends AndroidActions {
 
     @AndroidFindBy(xpath = "//android.view.View[@resource-id=\"select-native-2-button\"]")
     private WebElement NativeSelectDrpDwn;
+    @AndroidFindBy(xpath = "//android.widget.SeekBar[@content-desc=\"Slider: 50\"]")
+    private WebElement SeekBar;
 
     //***************************************************************************************************
     @Step("Step: jQuery Select Drop Down Scenario list: Validate the jQuery Native Select Drop Down in the jQuery Mobile 1.4.5 Forms Page")
@@ -44,6 +49,34 @@ public class UIFrameworkCatalogjQueryMobile145FormsPage extends AndroidActions {
         Assert.assertEquals(ActualSelectedItem,NativeSelect,"Failed in Assertion Check Values Or Synchronization!");
         Allure.addAttachment("Validation Passed! Click DropDown For Actual Value.",ActualSelectedItem);
         AndroidActions.screenshot(driver);
+
+
+    }
+
+    //***************************************************************************************************
+    @Step("Step: jQuery Slider Scenario : Validate the jQuery Slider Bar in the jQuery Mobile 1.4.5 Forms Page")
+    @Severity(SeverityLevel.NORMAL)
+    public void jQueryMobile145SliderBar(int Xcoordinate, int Ycoordinate, int FinalPositionValue) throws InterruptedException {
+        Allure.step("jQuery Slider Bar Moved");
+        String contentDesc = SeekBar.getAttribute("content-desc");
+        String numericValueString = contentDesc.replaceAll("\\D+", "");
+        int InitialPositionInteger = Integer.parseInt(numericValueString);
+
+        Thread.sleep(1000);
+        DragAndDrop(SeekBar,Xcoordinate,Ycoordinate);
+        AndroidActions.screenshot(driver);
+
+        List<WebElement> seekBarsFinalPosition = driver.findElements(By.xpath("//android.widget.SeekBar[starts-with(@content-desc, 'Slider:')]"));
+        for (WebElement seekBar : seekBarsFinalPosition) {
+            String contentDescFinal = seekBar.getAttribute("content-desc");
+            System.out.println("Final value: " + contentDescFinal);
+            System.out.println("Initial Value: Slider: " + InitialPositionInteger);
+            Assert.assertNotEquals(contentDescFinal,"Slider: "+InitialPositionInteger,"Value Matched! Failed! Check Final Value Allocated");
+            Allure.addAttachment("Validation Passed! Slider Is Movable",
+                    "Initial Position: "+InitialPositionInteger+"\n"+"Final Position: "+contentDescFinal);
+
+        }
+
 
 
     }

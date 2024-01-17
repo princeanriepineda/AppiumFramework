@@ -35,7 +35,13 @@ public class AndroidBaseTest extends AppiumUtils {
     public UIFrameworkCatalogOnsenUI200beta5LandingPage UIFCOnsenUIBeta5LP;
     public UIFrameworkCatalogOnsenUI200beta5ListPage UIFCOnsenUIBeta5ListP;
     public UIFrameworkCatalogPhonon131FormsPage UIFCPhononFormsP;
-
+    public UIFrameworkCatalogPhonon131DialogsPage UIFCPhononDialogsP;
+    public UIFrameworkCatalogFramework7Material140AutocompletePage UIFCFramework7MaterialAutocompleteP;
+    public UIFrameworkCatalogFramework7Material140ContactsPage UIFCFramework7MaterialContactsP;
+    public APIDemosLandingPage APIDLP;
+    public APIDemosViewsPage APIDViewsP;
+    public APIDemosProgressPage APIDProgressP;
+    public APIDemosIncrementalPage APIDIncrementalP;
 
 
     @BeforeMethod(alwaysRun = true)
@@ -67,6 +73,8 @@ public class AndroidBaseTest extends AppiumUtils {
         UIFCjQueryMobileFormsP = new UIFrameworkCatalogjQueryMobile145FormsPage(driver);
         UIFCPhononLP = new UIFrameworkCatalogPhonon131LandingPage(driver);
         UIFCPhononPopoversP = new UIFrameworkCatalogPhonon131PopoversPage(driver);
+        UIFCPhononFormsP = new UIFrameworkCatalogPhonon131FormsPage(driver);
+        UIFCPhononDialogsP = new UIFrameworkCatalogPhonon131DialogsPage(driver);
         UIFCOnsenUIBeta5LP = new UIFrameworkCatalogOnsenUI200beta5LandingPage(driver);
         UIFCOnsenUIBeta5ListP = new UIFrameworkCatalogOnsenUI200beta5ListPage(driver);
         UIFCFramework7MaterialLP =  new UIFrameworkCatalogFramework7Material140LandingPage(driver);
@@ -74,7 +82,12 @@ public class AndroidBaseTest extends AppiumUtils {
         UIFCFramework7MaterialSignInP = new UIFrameworkCatalogFramework7Material140SignInPage(driver);
         UIFCFramework7MaterialFormsP = new UIFrameworkCatalogFramework7Material140FormsPage(driver);
         UIFCFramework7MaterialFormsStorageP = new UIFrameworkCatalogFramework7Material140FormStoragePage(driver);
-        UIFCPhononFormsP = new UIFrameworkCatalogPhonon131FormsPage(driver);
+        UIFCFramework7MaterialAutocompleteP = new UIFrameworkCatalogFramework7Material140AutocompletePage(driver);
+        UIFCFramework7MaterialContactsP = new UIFrameworkCatalogFramework7Material140ContactsPage(driver);
+        APIDLP = new APIDemosLandingPage(driver);
+        APIDViewsP = new APIDemosViewsPage(driver);
+        APIDProgressP = new APIDemosProgressPage(driver);
+        APIDIncrementalP = new APIDemosIncrementalPage(driver);
 
     }
 //    @AfterMethod
