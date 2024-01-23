@@ -23,7 +23,7 @@ public class UIFrameworkCatalogPhonon131FormsPage extends AndroidActions {
 
     @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"Full name\"]")
     private WebElement FullNameTxtBx;
-    @AndroidFindBy(accessibility = "First Name")
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"First Name\"]")
     private WebElement FirsNameTxtBox;
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Checkbox1\"]")
     private WebElement CheckBox1;
@@ -46,6 +46,8 @@ public class UIFrameworkCatalogPhonon131FormsPage extends AndroidActions {
 
         Assert.assertTrue(FirsNameTxtBox.isEnabled(),"First Name Txt Box is not enabled");
         FirsNameTxtBox.click();
+
+        //FirsNameTxtBox.sendKeys("pedro@hotmail.com");
 
         Assert.assertTrue(CheckBox1.isEnabled(),"Check Box Button 1 is not enabled");
         CheckBox1.click();

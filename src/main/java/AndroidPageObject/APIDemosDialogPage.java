@@ -33,6 +33,8 @@ public class APIDemosDialogPage extends AndroidActions {
     private WebElement ChangeTheDateBtn;
     @AndroidFindBy(xpath="//android.widget.Button[@resource-id=\"android:id/button1\"]")
     private WebElement OkModalBtn;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"io.appium.android.apis:id/dateDisplay\"]")
+    private WebElement DefaultDisplayDateHeader;
     @AndroidFindBy(xpath="//android.widget.TextView[@resource-id=\"android:id/date_picker_header_year\"]")
     private WebElement YearModalBtn;
     @AndroidFindBy(xpath="//android.widget.TextView[@resource-id=\"android:id/date_picker_header_date\"]")
@@ -104,12 +106,17 @@ public class APIDemosDialogPage extends AndroidActions {
         }
         AndroidActions.screenshot(driver);
         OkModalBtn.click();
+
+        Thread.sleep(1000);
+        AndroidActions.screenshot(driver);
+        Allure.addAttachment("Default Date Header Values. Check Drop Down Values ",
+                "Actual Value: "+DefaultDisplayDateHeader.getText());
     }
 
     //****************************************************************************
     @Step("Step: Date Picker Scenario: Validate: Select Next Week Date (7days) on custom date format field Dialog Page")
     @Severity(SeverityLevel.NORMAL)
-    public void NextWeekDate7daysoncustomdateformatfield(){
+    public void NextWeekDate7daysoncustomdateformatfield() throws InterruptedException {
         Allure.step("Change The Custom Date By Next Week Date (7days)");
         // Get the current date
         LocalDate currentDate = LocalDate.now();
@@ -150,6 +157,11 @@ public class APIDemosDialogPage extends AndroidActions {
         WebElement DateTarget = driver.findElement(By.xpath(TargetDateXpath));
         Allure.addAttachment("Validation Passed! Check Dropdown Values","Actual Date Values: "+DateTarget.getAttribute("content-desc"));
         OkModalBtn.click();
+
+        Thread.sleep(1000);
+        AndroidActions.screenshot(driver);
+        Allure.addAttachment("Default Date Header Values. Check Drop Down Values ",
+                "Actual Value: "+DefaultDisplayDateHeader.getText());
     }
 
     //****************************************************************************
@@ -212,5 +224,10 @@ public class APIDemosDialogPage extends AndroidActions {
         }
         AndroidActions.screenshot(driver);
         OkModalBtn.click();
+
+        Thread.sleep(1000);
+        AndroidActions.screenshot(driver);
+        Allure.addAttachment("Default Date Header Values. Check Drop Down Values ",
+                "Actual Value: "+DefaultDisplayDateHeader.getText());
     }
 }

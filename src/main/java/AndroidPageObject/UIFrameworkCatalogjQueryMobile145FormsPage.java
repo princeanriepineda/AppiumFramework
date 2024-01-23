@@ -68,7 +68,7 @@ public class UIFrameworkCatalogjQueryMobile145FormsPage extends AndroidActions {
 
         List<WebElement> seekBarsFinalPosition = driver.findElements(By.xpath("//android.widget.SeekBar[starts-with(@content-desc, 'Slider:')]"));
         for (WebElement seekBar : seekBarsFinalPosition) {
-            String contentDescFinal = seekBar.getAttribute("content-desc");
+            String contentDescFinal = seekBar.getText();
             System.out.println("Final value: " + contentDescFinal);
             System.out.println("Initial Value: Slider: " + InitialPositionInteger);
             Assert.assertNotEquals(contentDescFinal,"Slider: "+InitialPositionInteger,"Value Matched! Failed! Check Final Value Allocated");

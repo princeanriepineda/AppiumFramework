@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" thread-count="2">
+    <test verbose="2" preserve-order="true" name="C:/Users/princeanriepineda/GitAppium/AppiumTrainingHybridFramework">
+        <classes>
+            <class name="TestCases.AndroidAPIDemos_SelectDropDownTestCase">
+                <methods>
+                    <include name="Test1SelectDropDown"/>
+                </methods>
+            </class>
+            <class name="TestCases.AndroidAPIDemos_ProgressBarTestCase">
+                <methods>
+                    <include name="Test1ProgressBars"/>
+                </methods>
+            </class>
+            <class name="TestCases.AndroidAPIDemos_DatePickerTestCase">
+                <methods>
+                    <include name="Test1DatePicker"/>
+                    <include name="Test2DatePicker"/>
+                    <include name="Test3DatePicker"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

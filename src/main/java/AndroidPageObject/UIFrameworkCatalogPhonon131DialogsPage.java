@@ -36,8 +36,6 @@ public class UIFrameworkCatalogPhonon131DialogsPage extends AndroidActions {
         Allure.step("Phonon 1.3.1 Click Show Alert Button And Validate The Alert Modal");
         Assert.assertTrue(ShowAlertBtn.isEnabled(), "Show Alert is not enabled");
         ShowAlertBtn.click();
-        Thread.sleep(1000);
-        AndroidActions.screenshot(driver);
 
         WebElement ShowAlertModalTxt = driver.findElement(By.xpath("//android.view.View[@content-desc=\"Example\"]"));
         Assert.assertEquals(ShowAlertModalTxt.getAttribute("content-desc"),"Example","Mismatch in Assertion Check Values or Synchronization!");
@@ -84,8 +82,6 @@ public class UIFrameworkCatalogPhonon131DialogsPage extends AndroidActions {
         Allure.step("Phonon 1.3.1 Click Show Confirm Button, Click OK And Validate The Alert Modal");
         Assert.assertTrue(ShowConfimrBtn.isEnabled(), "Show Confirm is not enabled");
         ShowConfimrBtn.click();
-        Thread.sleep(1000);
-        AndroidActions.screenshot(driver);
 
         WebElement ShowConfirmModalTxt = driver.findElement(By.xpath("//android.view.View[@content-desc=\"Example\"]"));
         Assert.assertEquals(ShowConfirmModalTxt.getAttribute("content-desc"),"Example","Mismatch in Assertion Check Values or Synchronization!");
@@ -109,8 +105,6 @@ public class UIFrameworkCatalogPhonon131DialogsPage extends AndroidActions {
         Allure.step("Phonon 1.3.1 Click Show Confirm Button, Click Cancel And Validate The Alert Modal");
         Assert.assertTrue(ShowConfimrBtn.isEnabled(), "Show Confirm is not enabled");
         ShowConfimrBtn.click();
-        Thread.sleep(1000);
-        AndroidActions.screenshot(driver);
 
         WebElement ShowConfirmModalTxt = driver.findElement(By.xpath("//android.view.View[@content-desc=\"Example\"]"));
         Assert.assertEquals(ShowConfirmModalTxt.getAttribute("content-desc"),"Example","Mismatch in Assertion Check Values or Synchronization!");
