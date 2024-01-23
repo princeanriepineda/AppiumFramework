@@ -14,7 +14,7 @@ public class AndroidUICatalogTableSortAndSearch_TestCase extends AndroidBaseTest
     @Description("Description: Validation of Sort And Search ")
     @Epic("Epic: User Management")
     @Feature("Feature: Sort & Search Android")
-    public void Test1InputForms() throws InterruptedException {
+    public void Test1SortAndSearch() throws InterruptedException {
         System.out.println("Appium Started!!!");
 
         //****************************************************************************

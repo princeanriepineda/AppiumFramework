@@ -24,6 +24,7 @@ public class APIDemosLandingPage extends AndroidActions {
     @AndroidFindBy(xpath="//android.widget.TextView[@content-desc=\"Views\"]")
     private WebElement ViewsBtn;
 
+
     //****************************************************************************
     @Step("Step: Click Views Btn In Landing Page")
     @Severity(SeverityLevel.NORMAL)
@@ -34,7 +35,8 @@ public class APIDemosLandingPage extends AndroidActions {
         Thread.sleep(1000);
         AndroidActions.screenshot(driver);
         Allure.addAttachment("Validation Passed! Check DropDown" ,"Button Clicked");
-
-
     }
+
+
+
 }

@@ -13,7 +13,7 @@ public class AndroidUICatalogSliders_TestCase extends AndroidBaseTest {
     @Description("Description: Validation of Slider ")
     @Epic("Epic: User Management")
     @Feature("Feature: Progress Slider Android")
-    public void Test1InputForms() throws InterruptedException {
+    public void Test1Sliders() throws InterruptedException {
         System.out.println("Appium Started!!!");
 
         //****************************************************************************

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" thread-count="2">
+    <test verbose="2" preserve-order="true" name="C:/Users/princeanriepineda/GitAppium/AppiumTrainingHybridFramework">
+        <classes>
+            <class name="TestCases.AndroidAPIDemos_DatePickerMultipleValuesTestCase">
+                <methods>
+                    <include name="Test1DatePickerMultipleValues"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

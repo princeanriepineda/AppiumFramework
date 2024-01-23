@@ -42,6 +42,9 @@ public class AndroidBaseTest extends AppiumUtils {
     public APIDemosViewsPage APIDViewsP;
     public APIDemosProgressPage APIDProgressP;
     public APIDemosIncrementalPage APIDIncrementalP;
+    public APIDemosDateWidgetPage APIDDateWidgetsP;
+    public APIDemosDialogPage APIDDialogP;
+    public APIDemosSpinnerPage APIDSpinnerP;
 
 
     @BeforeMethod(alwaysRun = true)
@@ -88,13 +91,16 @@ public class AndroidBaseTest extends AppiumUtils {
         APIDViewsP = new APIDemosViewsPage(driver);
         APIDProgressP = new APIDemosProgressPage(driver);
         APIDIncrementalP = new APIDemosIncrementalPage(driver);
+        APIDDateWidgetsP = new APIDemosDateWidgetPage(driver);
+        APIDDialogP = new APIDemosDialogPage(driver);
+        APIDSpinnerP = new APIDemosSpinnerPage(driver);
 
     }
-//    @AfterMethod
-//    public void EndTest(){
-//        service.stop();
-//        driver.quit();
-//    }
+    @AfterMethod
+    public void EndTest(){
+        service.stop();
+        driver.quit();
+    }
     public Double getFormattedAmount(String amount){
         Double price = Double.parseDouble(amount.substring(1));
         return price;

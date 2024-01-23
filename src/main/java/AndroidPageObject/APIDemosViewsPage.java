@@ -23,6 +23,10 @@ public class APIDemosViewsPage extends AndroidActions {
     }
     @AndroidFindBy(xpath="//android.widget.TextView[@content-desc=\"Progress Bar\"]")
     private WebElement ProgressBtn;
+    @AndroidFindBy(xpath="//android.widget.TextView[@content-desc=\"Date Widgets\"]")
+    private WebElement DateWidgetsBtn;
+    @AndroidFindBy(xpath="//android.widget.TextView[@content-desc=\"Spinner\"]")
+    private WebElement SpinnerBtn;
 
     //****************************************************************************
     @Step("Step: Click Progress Btn In Views Page")
@@ -37,5 +41,30 @@ public class APIDemosViewsPage extends AndroidActions {
         Allure.addAttachment("Validation Passed! Check DropDown" ,"Button Clicked");
 
 
+    }
+
+    //****************************************************************************
+    @Step("Step: Click Date Widget Btn In Landing Page")
+    @Severity(SeverityLevel.NORMAL)
+    public void ClickDateWidget() throws InterruptedException {
+        Allure.step("Clicked Date Widget Button");
+        Assert.assertTrue(DateWidgetsBtn.isEnabled(),"Date Widget Button is not enabled");
+        DateWidgetsBtn.click();
+        Thread.sleep(1000);
+        AndroidActions.screenshot(driver);
+        Allure.addAttachment("Validation Passed! Check DropDown" ,"Button Clicked");
+    }
+
+    //****************************************************************************
+    @Step("Step: Click Spinner Btn In Landing Page")
+    @Severity(SeverityLevel.NORMAL)
+    public void ClickSpinner() throws InterruptedException {
+        Allure.step("Clicked Spinner Widget Button");
+        driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Spinner\"))"));
+        Assert.assertTrue(SpinnerBtn.isEnabled(),"Spinner Button is not enabled");
+        SpinnerBtn.click();
+        Thread.sleep(1000);
+        AndroidActions.screenshot(driver);
+        Allure.addAttachment("Validation Passed! Check DropDown" ,"Button Clicked");
     }
 }

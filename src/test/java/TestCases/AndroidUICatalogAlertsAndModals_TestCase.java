@@ -14,7 +14,7 @@ public class AndroidUICatalogAlertsAndModals_TestCase extends AndroidBaseTest {
     @Description("Description: Validation of Show Alert, Show Prompt And Show Confirm ")
     @Epic("Epic: User Management")
     @Feature("Feature: Alerts & Modals Android")
-    public void Test1InputForms() throws InterruptedException {
+    public void Test1AlertAndModals() throws InterruptedException {
         System.out.println("Appium Started!!!");
 
         //****************************************************************************

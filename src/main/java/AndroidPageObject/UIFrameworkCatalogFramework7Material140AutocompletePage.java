@@ -29,7 +29,7 @@ public class UIFrameworkCatalogFramework7Material140AutocompletePage extends And
     private WebElement SimpleDrpDown;
 
     //***************************************************************************************************
-    @Step("Step: Step: Select Drop Down list Scenario: Validate the Select Drop Down In The UIFramework 7 Material 1.4.0 Autocomplete Page")
+    @Step("Step: Select Drop Down list Scenario: Validate the Select Drop Down In The UIFramework 7 Material 1.4.0 Autocomplete Page")
     @Severity(SeverityLevel.NORMAL)
     public  void UIFramework7Material140AutoCompleteDropDown(String Fruit){
         Allure.step("AutoComplete Drop Down ");
@@ -45,7 +45,7 @@ public class UIFrameworkCatalogFramework7Material140AutocompletePage extends And
     }
 
     //***************************************************************************************************
-    @Step("Step: Step: Search list Scenario: Validate the Search Drop Down In The UIFramework 7 Material 1.4.0 Autocomplete Page")
+    @Step("Step: Search list Scenario: Validate the Search Drop Down In The UIFramework 7 Material 1.4.0 Autocomplete Page")
     @Severity(SeverityLevel.NORMAL)
     public  void UIFramework7Material140AutoCompleteSearch(String Fruit){
         Allure.step("AutoComplete Search Drop Down List");

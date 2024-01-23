@@ -14,7 +14,7 @@ public class AndroidAPIDemos_ProgressBarTestCase extends AndroidBaseTest {
     @Description("Description: Validation of Progress Bars ")
     @Epic("Epic: User Management")
     @Feature("Feature: Progress Bars Android")
-    public void Test1InputForms() throws InterruptedException {
+    public void Test1ProgressBars() throws InterruptedException {
         System.out.println("Appium Started!!!");
 
         //****************************************************************************
