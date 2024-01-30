@@ -13,7 +13,7 @@ public class AndroidUICatalogInputForms_TestCase extends AndroidBaseTest {
 
     @Test(priority = 1)
     @Story("Story: Input Forms Scenario")
-    @Description("Description: Validation of CheckBox, Radio Buttons, jQuery Select DropDown List, Select DropDown List ")
+    @Description("Description: Validation of CheckBox, Radio Buttons, jQuery Select DropDown List, Select DropDown List, Input Form Submit, Ajax Form Submit ")
     @Epic("Epic: User Management")
     @Feature("Feature: Input Actions Android")
     public void Test1InputForms() throws InterruptedException {

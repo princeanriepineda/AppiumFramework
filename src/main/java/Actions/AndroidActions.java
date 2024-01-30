@@ -2,11 +2,12 @@ package Actions;
 
 import Utils.AppiumUtils;
 import com.google.common.collect.ImmutableMap;
-import io.appium.java_client.AppiumBy;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.LongPressOptions;
+import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.ElementOption;
+import io.appium.java_client.touch.offset.PointOption;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.RemoteWebElement;
@@ -19,13 +20,14 @@ public class AndroidActions extends AppiumUtils{
     AndroidDriver driver;
     public AndroidActions(AndroidDriver driver){
         this.driver=driver;}
-    public void swipeAction(WebElement ele, String direction){
+    public void swipeAction(WebElement ele, String direction) throws InterruptedException {
         // Java
         ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
                 "elementId", ((RemoteWebElement)ele).getId(),
-                "direction", "left",
-                "percent", 0.75
+                "direction", direction,
+                "percent", 1.0
         ));
+        Thread.sleep(2000);
     }
     public boolean isSwipeActionOccurring(Point initialPosition, Point finalPosition) {
         // Validate whether the x-coordinate changes after the swipe
@@ -38,7 +40,7 @@ public class AndroidActions extends AppiumUtils{
                 "endX", directionX,
                 "endY", directionY
         ));
-        Thread.sleep(3000);
+        Thread.sleep(6000);
     }
     public void LongPress(WebElement ele){
         new TouchAction<>(driver)
@@ -74,6 +76,36 @@ public class AndroidActions extends AppiumUtils{
         while (canScrollMore);
         Thread.sleep(2000);
     }
+    public int getMonthNumber(String monthString) {
+        switch (monthString.toLowerCase()) {
+            case "january":
+                return 1;
+            case "february":
+                return 2;
+            case "march":
+                return 3;
+            case "april":
+                return 4;
+            case "may":
+                return 5;
+            case "june":
+                return 6;
+            case "july":
+                return 7;
+            case "august":
+                return 8;
+            case "september":
+                return 9;
+            case "october":
+                return 10;
+            case "november":
+                return 11;
+            case "december":
+                return 12;
+            default:
+                throw new IllegalArgumentException("Invalid month string: " + monthString);
+        }
+    }
 
 
 
@@ -82,7 +114,6 @@ public class AndroidActions extends AppiumUtils{
     public static byte[] screenshot(WebDriver driver) {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
-
 
 
 }

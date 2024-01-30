@@ -56,7 +56,7 @@ public class UIFrameworkCatalogjQueryMobile145FormsPage extends AndroidActions {
     //***************************************************************************************************
     @Step("Step: jQuery Slider Scenario : Validate the jQuery Slider Bar in the jQuery Mobile 1.4.5 Forms Page")
     @Severity(SeverityLevel.NORMAL)
-    public void jQueryMobile145SliderBar(int Xcoordinate, int Ycoordinate, int FinalPositionValue) throws InterruptedException {
+    public void jQueryMobile145SliderBar(int Xcoordinate, int Ycoordinate) throws InterruptedException {
         Allure.step("jQuery Slider Bar Moved");
         String contentDesc = SeekBar.getAttribute("content-desc");
         String numericValueString = contentDesc.replaceAll("\\D+", "");

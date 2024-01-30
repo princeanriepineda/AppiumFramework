@@ -59,6 +59,7 @@ public class UIFrameworkCatalogPhonon131DialogsPage extends AndroidActions {
 
         WebElement ShowPromptModalTxt = driver.findElement(By.xpath("//android.view.View[@content-desc=\"Example\"]"));
         Assert.assertEquals(ShowPromptModalTxt.getAttribute("content-desc"),"Example","Mismatch in Assertion Check Values or Synchronization!");
+        Thread.sleep(500);
         WebElement ValueTextBox = driver.findElement(By.xpath("//android.widget.EditText[@text=\"Value\"]"));
         ValueTextBox.sendKeys(Value);
         Thread.sleep(500);

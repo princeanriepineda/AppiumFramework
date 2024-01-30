@@ -12,6 +12,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 public class APIDemosSpinnerPage extends AndroidActions {
@@ -32,6 +33,9 @@ public class APIDemosSpinnerPage extends AndroidActions {
     @Severity(SeverityLevel.NORMAL)
     public void SelectDropDownListSpinner(String Color, String Planet) throws InterruptedException {
         Allure.step("Spinner Drop Down Selection Select Color And Planet");
+
+//        Select ColorDropDownSpinner = new Select(ColorDropDown);
+//        ColorDropDownSpinner.selectByVisibleText(Color);
 
         ColorDropDown.click();
         WebElement ColorSelectionModal = driver.findElement(By.xpath("//android.widget.CheckedTextView[@resource-id=\"android:id/text1\" and @text=\""+Color+"\"]"));

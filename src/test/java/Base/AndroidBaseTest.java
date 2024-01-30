@@ -60,9 +60,7 @@ public class AndroidBaseTest extends AppiumUtils {
 
         options = new UiAutomator2Options();
         options.setDeviceName(prop.getProperty("AndroidDeviceName"));
-        //options.setApp("/Users/princeanriepineda/IdeaProjects/AppiumTrainingHybridFramework/src/main/java/ResourcesAPK/General-Store.apk");
-        //options.setApp("/Users/princeanriepineda/GitAppium/AppiumTrainingHybridFramework/src/main/java/ResourcesAPK/UI Framework Catalog_0.3.0_Apkpure.apk");
-        options.setApp(prop.getProperty("AndroidAppPathAPIDemos"));
+        options.setApp(prop.getProperty("AndroidAppPathUiCatalog"));
         options.setCapability("appium:chromedriverEnableAsyncDownload", true);
         driver = new AndroidDriver(service.getUrl(), options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
@@ -96,11 +94,11 @@ public class AndroidBaseTest extends AppiumUtils {
         APIDSpinnerP = new APIDemosSpinnerPage(driver);
 
     }
-    @AfterMethod
-    public void EndTest(){
-        service.stop();
-        driver.quit();
-    }
+//    @AfterMethod
+//    public void EndTest(){
+//        service.stop();
+//        driver.quit();
+//    }
     public Double getFormattedAmount(String amount){
         Double price = Double.parseDouble(amount.substring(1));
         return price;

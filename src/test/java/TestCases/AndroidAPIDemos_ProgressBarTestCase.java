@@ -21,8 +21,8 @@ public class AndroidAPIDemos_ProgressBarTestCase extends AndroidBaseTest {
         APIDLP.ClickViews();
         APIDViewsP.ClickProgress();
         APIDProgressP.ClickIncremental();
-        APIDIncrementalP.IncrementalPlusButtonProgressBar();
-        APIDIncrementalP.IncrementalMinusButtonProgressBar();
+        APIDIncrementalP.IncrementalPlusButtonProgressBar(80);
+        APIDIncrementalP.IncrementalPlusButtonProgressBar(40);
 
 
 

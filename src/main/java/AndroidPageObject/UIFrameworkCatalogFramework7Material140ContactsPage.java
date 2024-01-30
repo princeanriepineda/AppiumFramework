@@ -45,6 +45,11 @@ public class UIFrameworkCatalogFramework7Material140ContactsPage extends Android
                 actualNamesStartingWithA.add(name);
             }
         }
+        System.out.println("Extracted Names Starting with 'A':");
+        for (String name : actualNamesStartingWithA) {
+            System.out.println(name);
+        }
+
         // Define specified values to be ignored during the check
         List<String> ignoredValues = Arrays.asList("Accordion", "Autocomplete", "A");
         // Check if the list is in alphabetical order (ignoring specified values)
@@ -62,12 +67,36 @@ public class UIFrameworkCatalogFramework7Material140ContactsPage extends Android
         }
         if (isAlphabetical) {
             System.out.println("The list is in alphabetical order (ignoring specified values).");
+
         } else {
             System.out.println("The list is NOT in alphabetical order (ignoring specified values).");
         }
         AndroidActions.screenshot(driver);
         Allure.addAttachment("Validation Passed!, Check Dropdown For The Sorted List",
                 "Actual Sorted List Values(Note: Accordion, Autocomplete and A is Ignored): "+actualNamesStartingWithA);
+
+
+//        // Find elements using dynamic XPath for all elements with content description
+//        List<WebElement> allNameElements = driver.findElements(By.xpath("//android.view.View[@content-desc]"));
+//
+//        // Convert List<WebElement> to List<String> containing content-desc values starting with 'A'
+//        List<String> actualNamesStartingWithA = allNameElements.stream()
+//                .map(element -> element.getAttribute("content-desc"))
+//                .filter(name -> name != null && name.startsWith("A"))
+//                .collect(Collectors.toList());
+//
+//        // Sort the list alphabetically
+//        Collections.sort(actualNamesStartingWithA);
+//
+//        // Print the extracted names in the desired format {"name1","name2"}
+//        System.out.println("Extracted Names Starting with 'A' (Alphabetically Sorted):");
+//        System.out.println("{" + String.join(",", actualNamesStartingWithA) + "}");
+
+
+
+
+
+
     }
 
 

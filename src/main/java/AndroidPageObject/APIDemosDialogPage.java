@@ -3,6 +3,8 @@ package AndroidPageObject;
 import Actions.AndroidActions;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.qameta.allure.Allure;
@@ -16,9 +18,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+
 
 public class APIDemosDialogPage extends AndroidActions {
 
@@ -41,10 +45,15 @@ public class APIDemosDialogPage extends AndroidActions {
     private WebElement DateHeaderModalBtn;
     @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Next month\"]")
     private WebElement MonthNextModalBtn;
-    @AndroidFindBy(xpath="//android.widget.ImageButton[@content-desc=\"Previous month\"]")
-    private WebElement MonthPreviousModalBtn;
-    @AndroidFindBy(xpath="//android.widget.TextView[@resource-id=\"io.appium.android.apis:id/dateDisplay\"]")
-    private WebElement DefaultDynamicDateHeader;
+    @AndroidFindBy(xpath="//android.widget.Button[@resource-id=\"android:id/button1\"]")
+    private WebElement TimeOkModalBtn;
+    @AndroidFindBy(xpath = "//android.widget.Button[@content-desc=\"change the time (spinner)\"]")
+    private WebElement ChangeTheTimeSpinnerBtn;
+    @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id=\"android:id/numberpicker_input\" and @text=\"pm\"]")
+    private  WebElement PMPicker;
+    @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id=\"android:id/numberpicker_input\" and @text=\"am\"]")
+    private  WebElement AMPicker;
+
 
     //****************************************************************************
     @Step("Step: Date Picker Scenario: Validate: Select Dynamic date on your birth date field Dialog Page")
@@ -87,6 +96,7 @@ public class APIDemosDialogPage extends AndroidActions {
                         // Perform additional actions if needed
                         // Set the flag to true indicating the element is clicked
                         elementClicked = true;
+                        Assert.assertEquals(actualWholeDate,ExpectedWholeDate,"Mismatch Selected Date");
                         Allure.addAttachment("Validation Passed! Check Dropdown Values","Actual Date Values: "+actualWholeDate);
                         break;  // Break out of the inner loop once the element is clicked
 
@@ -107,8 +117,11 @@ public class APIDemosDialogPage extends AndroidActions {
         AndroidActions.screenshot(driver);
         OkModalBtn.click();
 
+        int MonthNumber = getMonthNumber(Month);
+        String ExpectedWholeDate2 =MonthNumber+"-"+Day+"-"+YearTarget+" 01:02";
         Thread.sleep(1000);
         AndroidActions.screenshot(driver);
+        Assert.assertEquals(DefaultDisplayDateHeader.getText(),ExpectedWholeDate2,"Mismatch Selected in Date Header");
         Allure.addAttachment("Default Date Header Values. Check Drop Down Values ",
                 "Actual Value: "+DefaultDisplayDateHeader.getText());
     }
@@ -147,6 +160,7 @@ public class APIDemosDialogPage extends AndroidActions {
             WebElement DateTarget = driver.findElement(By.xpath(TargetDateXpath));
             DateTarget.click();
         } catch (NoSuchElementException e) {
+            //place explicit
             // Handle the case where the element is not found
             System.out.println("Element not found. Clicking nextMonthButton...");
             MonthNextModalBtn.click();
@@ -156,10 +170,18 @@ public class APIDemosDialogPage extends AndroidActions {
         AndroidActions.screenshot(driver);
         WebElement DateTarget = driver.findElement(By.xpath(TargetDateXpath));
         Allure.addAttachment("Validation Passed! Check Dropdown Values","Actual Date Values: "+DateTarget.getAttribute("content-desc"));
+        String ContentDescExpected = DateTarget.getAttribute("content-desc");
+        String numericValueStringExpected = ContentDescExpected.replaceAll("\\D+", "");
         OkModalBtn.click();
 
         Thread.sleep(1000);
         AndroidActions.screenshot(driver);
+        String ExpectedOutputDateHeader=monthValue+""+numericValueStringExpected+"0102";
+        String ContentDescActual = DefaultDisplayDateHeader.getAttribute("text");
+        String numericValueStringActual = ContentDescActual.replaceAll("\\D+", "");
+        String ActualOutputDateHeader = numericValueStringActual;
+
+        Assert.assertEquals(ActualOutputDateHeader,ExpectedOutputDateHeader,"Mismatch Date Outputs");
         Allure.addAttachment("Default Date Header Values. Check Drop Down Values ",
                 "Actual Value: "+DefaultDisplayDateHeader.getText());
     }
@@ -205,6 +227,7 @@ public class APIDemosDialogPage extends AndroidActions {
                         // Perform additional actions if needed
                         // Set the flag to true indicating the element is clicked
                         elementClicked = true;
+                        Assert.assertEquals(actualWholeDate,ExpectedWholeDate,"Mismatch Selected Date");
                         Allure.addAttachment("Validation Passed! Check Dropdown Values", "Actual Date Values: " + actualWholeDate);
                         break;  // Break out of the inner loop once the element is clicked
 
@@ -225,9 +248,187 @@ public class APIDemosDialogPage extends AndroidActions {
         AndroidActions.screenshot(driver);
         OkModalBtn.click();
 
+        int MonthNumber = getMonthNumber(Month);
+        String ExpectedWholeDate2 =MonthNumber+"-"+Day+"-"+YearTarget+" 01:02";
         Thread.sleep(1000);
         AndroidActions.screenshot(driver);
+        Assert.assertEquals(DefaultDisplayDateHeader.getText(),ExpectedWholeDate2,"Mismatch Selected in Date Header");
         Allure.addAttachment("Default Date Header Values. Check Drop Down Values ",
                 "Actual Value: "+DefaultDisplayDateHeader.getText());
     }
-}
+
+    //****************************************************************************
+    @Step("Step: Time Picker Scenario: Validate: Select Dynamic Time on time picker field spinner in Dialog Page")
+    @Severity(SeverityLevel.NORMAL)
+    public void SelectDynamicTimeOnTimePickerFieldSpinner(int HourValue, int MinuteValue, String AMorPM) throws InterruptedException {
+        Allure.step("Change the Default Time By The Specific Time");
+        ChangeTheTimeSpinnerBtn.click();
+
+        if (HourValue % 2 == 0) {
+            WebElement targetDefault = driver.findElement(By.xpath("//android.widget.EditText[@resource-id=\"android:id/numberpicker_input\" and @text=\"1\"]"));
+            targetDefault.click();
+            driver.pressKey(new KeyEvent(AndroidKey.DEL));
+            targetDefault.sendKeys("2");
+            // Press the Enter key on the keypad using AndroidKey enum
+            driver.pressKey(new KeyEvent(AndroidKey.ENTER));
+            //DragAndDrop(targetDefault, 322, 986);
+            //Thread.sleep(4000);
+            WebElement Target = driver.findElement(AppiumBy.androidUIAutomator(
+                    "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView("
+                            + "new UiSelector().resourceId(\"android:id/numberpicker_input\").text(\""+HourValue+"\"));"));
+            String ActualHourValue = Target.getText();
+            int ActualConvertedIntegerValue = Integer.parseInt(ActualHourValue);
+            Assert.assertEquals(ActualConvertedIntegerValue, HourValue, "Mismatch in Scroll");
+        } else {
+            WebElement targetDefault = driver.findElement(By.xpath("//android.widget.EditText[@resource-id=\"android:id/numberpicker_input\" and @text=\"1\"]"));
+            targetDefault.click();
+            driver.pressKey(new KeyEvent(AndroidKey.DEL));
+            targetDefault.sendKeys("3");
+            // Press the Enter key on the keypad using AndroidKey enum
+            driver.pressKey(new KeyEvent(AndroidKey.ENTER));
+            WebElement Target = driver.findElement(AppiumBy.androidUIAutomator(
+                    "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView("
+                            //+ "new UiSelector().resourceId(\"android:id/numberpicker_input\").text(\""+HourValue+"\"));"));
+                            + "new UiSelector().text(\""+HourValue+"\"));"));
+            String ActualHourValue = Target.getText();
+            int ActualConvertedIntegerValue = Integer.parseInt(ActualHourValue);
+            Assert.assertEquals(ActualConvertedIntegerValue, HourValue, "Mismatch in Scroll");
+        }
+
+        //*******************************************************************************************
+
+//        WebElement TargetDefaultPicker2 = driver.findElement(By.xpath("//android.widget.EditText[@resource-id=\"android:id/numberpicker_input\" and @text=\"02\"]"));
+//        DragAndDrop(TargetDefaultPicker2,544,907);
+
+        String result;
+
+        if (MinuteValue >= 0 && MinuteValue <= 9) {
+            // Using String.format to add leading zero
+            result = String.format("%02d", MinuteValue);
+
+            WebElement targetDefault = driver.findElement(By.xpath("//android.widget.EditText[@resource-id=\"android:id/numberpicker_input\" and @text=\"02\"]"));
+            targetDefault.click();
+            driver.pressKey(new KeyEvent(AndroidKey.DEL));
+            targetDefault.sendKeys(result);
+            // Press the Enter key on the keypad using AndroidKey enum
+            driver.pressKey(new KeyEvent(AndroidKey.ENTER));
+
+            WebElement Target = driver.findElement(By.xpath("//android.widget.EditText[@resource-id=\"android:id/numberpicker_input\" and @text=\""+result+"\"]"));
+
+            String ActualMinuteValue = Target.getText();
+            Assert.assertEquals(ActualMinuteValue, result, "Mismatch in Scroll");
+
+            System.out.println("Result: " + result);
+        } else {
+            String strNumber = String.valueOf(MinuteValue);
+            WebElement targetDefault = driver.findElement(By.xpath("//android.widget.EditText[@resource-id=\"android:id/numberpicker_input\" and @text=\"02\"]"));
+            targetDefault.click();
+            driver.pressKey(new KeyEvent(AndroidKey.DEL));
+            targetDefault.sendKeys(strNumber);
+            driver.pressKey(new KeyEvent(AndroidKey.ENTER));
+
+            WebElement Target = driver.findElement(By.xpath("//android.widget.EditText[@resource-id=\"android:id/numberpicker_input\" and @text=\""+strNumber+"\"]"));
+
+            String ActualMinuteValue = Target.getText();
+            int ActualConvertedIntegerValue = Integer.parseInt(ActualMinuteValue);
+            Assert.assertEquals(ActualConvertedIntegerValue, MinuteValue, "Mismatch in Scroll");
+
+            System.out.println("Number is not a single digit.");
+        }
+
+        //*******************************************************************************************
+
+        if (HourValue % 2 == 0) {
+
+            if (AMorPM.equals("PM")) {
+                DragAndDrop(AMPicker, 763, 944);
+                Assert.assertEquals(PMPicker.getText(), "pm");
+                Allure.addAttachment("Validation Passed In PM", "Actual Values: " + PMPicker.getText());
+            } else {
+                //DragAndDrop(PMPicker, 767, 1283);
+                Assert.assertEquals(AMPicker.getText(), "am");
+                Allure.addAttachment("Validation Passed In AM", "Actual Values: " + AMPicker.getText());
+            }
+        }else {
+            if (AMorPM.equals("PM")) {
+                //DragAndDrop(PMPicker, 767, 1283);
+                Assert.assertEquals(PMPicker.getText(), "pm");
+                Allure.addAttachment("Validation Passed In PM", "Actual Values: " + PMPicker.getText());
+
+
+//                Assert.assertEquals(AMPicker.getText(), "am");
+//                Allure.addAttachment("Validation Passed In AM", "Actual Values: " + AMPicker.getText());
+            } else {
+                //DragAndDrop(AMPicker, 763, 944);
+                DragAndDrop(PMPicker, 767, 1283);
+
+                Assert.assertEquals(AMPicker.getText(), "am");
+                Allure.addAttachment("Validation Passed In AM", "Actual Values: " + AMPicker.getText());
+
+
+//                Assert.assertEquals(PMPicker.getText(), "pm");
+//                Allure.addAttachment("Validation Passed In PM", "Actual Values: " + PMPicker.getText());
+            }
+        }
+
+        TimeOkModalBtn.click();
+
+        String ActualDateAfterChanging = DefaultDisplayDateHeader.getText();
+        // Get the current local date and time
+        LocalDateTime now = LocalDateTime.now();
+        // Define the desired date and time format
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M-dd-yyyy");
+        // Format the LocalDateTime to a String
+        String formattedDateTime = now.format(formatter);
+        // Print the formatted date and time
+        System.out.println("Formatted Date and Time: " + formattedDateTime);
+
+        String HH, MM;
+
+        // Format hour
+        if (HourValue >= 0 && HourValue <= 9) {
+            HH = String.format("%02d", HourValue);
+        } else {
+            HH = String.valueOf(HourValue);
+        }
+
+        // Format minute
+        if (MinuteValue >= 0 && MinuteValue <= 9) {
+            MM = String.format("%02d", MinuteValue);
+        } else {
+            MM = String.valueOf(MinuteValue);
+        }
+
+        // Convert to military time if PM
+        if (AMorPM.equals("PM")) {
+            if (HourValue != 12) {
+                HH = String.valueOf(HourValue + 12);
+            }
+        }
+
+        Assert.assertEquals(ActualDateAfterChanging,formattedDateTime+" "+HH+":"+MM);
+        Allure.addAttachment("Validation Passed By Date And Time","Actualvalues: "+ActualDateAfterChanging);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+

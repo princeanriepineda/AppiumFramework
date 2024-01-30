@@ -29,21 +29,39 @@ public class APIDemosIncrementalPage extends AndroidActions {
     private WebElement ProgressBar;
 
     //****************************************************************************
-    @Step("Step: Progress Bar Scenario: Validate The Progress Bar From The Plus Button In Incremental Page")
+    @Step("Step: Progress Bar Scenario: Validate The Progress Bar From The Plus And Minus Button In Incremental Page")
     @Severity(SeverityLevel.NORMAL)
-    public void IncrementalPlusButtonProgressBar() throws InterruptedException {
-        Allure.step("Validate Progress Bar By Clicking The Plus Button");
+    public void IncrementalPlusButtonProgressBar(int FinalPositionValue) throws InterruptedException {
+        Allure.step("Validate Progress Bar By Clicking Plus And Minus Button");
         Assert.assertTrue(PlusBtn.isEnabled(),"Plus Button is not enabled");
         AndroidActions.screenshot(driver);
         String InitialPositionProgressBar = ProgressBar.getText();
-        PlusBtn.click();
-        PlusBtn.click();
-        PlusBtn.click();
-        String FinalPositionProgressBar = ProgressBar.getText();
-        AndroidActions.screenshot(driver);
-        Assert.assertNotEquals(InitialPositionProgressBar,FinalPositionProgressBar,"Assertion Failed Match Check Values!");
-        Allure.addAttachment("Validation Passed! Check First screen shot for initial position and Second screen shot for final position" ,
-                "Values of Initial and Final: "+InitialPositionProgressBar+" & "+FinalPositionProgressBar);
+        double doubleValue = Double.parseDouble(InitialPositionProgressBar);
+        int referenceDefaultvalue = (int) doubleValue;
+
+        if(FinalPositionValue>referenceDefaultvalue){
+            for(int i=referenceDefaultvalue;FinalPositionValue>=i;i++){
+                PlusBtn.click();
+                Thread.sleep(1000);
+                String FinalPositionProgressBar = ProgressBar.getText();
+                AndroidActions.screenshot(driver);
+                Assert.assertNotEquals(InitialPositionProgressBar,FinalPositionProgressBar,"Assertion Failed Match Check Values!");
+                Allure.addAttachment("Validation Passed! Check First screen shot for initial position and Second screen shot for final position" ,
+                        "Values of Initial and Final: "+InitialPositionProgressBar+" & "+FinalPositionProgressBar);
+            }
+        }else if(FinalPositionValue<referenceDefaultvalue){
+            for (int i=referenceDefaultvalue;FinalPositionValue<=i;i--){
+                MinusBtn.click();
+                String FinalPositionProgressBar = ProgressBar.getText();
+                AndroidActions.screenshot(driver);
+                Assert.assertNotEquals(InitialPositionProgressBar,FinalPositionProgressBar,"Assertion Failed Match Check Values!");
+                Allure.addAttachment("Validation Passed! Check First screen shot for initial position and Second screen shot for final position" ,
+                        "Values of Initial and Final: "+InitialPositionProgressBar+" & "+FinalPositionProgressBar);
+            }
+        }else {
+            System.out.println("No Action In Progress Bar By Same Input Of Default!");
+        }
+
 
 
     }

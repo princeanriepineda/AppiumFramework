@@ -19,7 +19,7 @@ public class AndroidUICatalogSliders_TestCase extends AndroidBaseTest {
         //****************************************************************************
         UIFCLP.SelectFramework("jQuery Mobile 1.4.5");
         UIFCjQueryMobileLP.jQueryMobile145Forms();
-        UIFCjQueryMobileFormsP.jQueryMobile145SliderBar(1030,1043,100);
+        UIFCjQueryMobileFormsP.jQueryMobile145SliderBar(1030,1043);
         driver.navigate().back();
         driver.navigate().back();
 
