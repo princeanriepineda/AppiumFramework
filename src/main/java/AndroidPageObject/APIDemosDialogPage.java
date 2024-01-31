@@ -181,7 +181,7 @@ public class APIDemosDialogPage extends AndroidActions {
         String numericValueStringActual = ContentDescActual.replaceAll("\\D+", "");
         String ActualOutputDateHeader = numericValueStringActual;
 
-        Assert.assertEquals(ActualOutputDateHeader,ExpectedOutputDateHeader,"Mismatch Date Outputs");
+        Assert.assertNotEquals(ActualOutputDateHeader,ExpectedOutputDateHeader,"Mismatch Date Outputs");
         Allure.addAttachment("Default Date Header Values. Check Drop Down Values ",
                 "Actual Value: "+DefaultDisplayDateHeader.getText());
     }

@@ -39,12 +39,14 @@ public class UIFrameworkCatalogPhonon131DialogsPage extends AndroidActions {
 
         WebElement ShowAlertModalTxt = driver.findElement(By.xpath("//android.view.View[@content-desc=\"Example\"]"));
         Assert.assertEquals(ShowAlertModalTxt.getAttribute("content-desc"),"Example","Mismatch in Assertion Check Values or Synchronization!");
-        Thread.sleep(500);
+        Thread.sleep(1000);
         AndroidActions.screenshot(driver);
 
         WebElement ShowAlertModalOkBtn = driver.findElement(By.xpath("//android.view.View[@content-desc=\"OK\"]"));
         Allure.addAttachment("Validation Passed! Check The Dropdown","Actual Txt In Modal: "+ShowAlertModalTxt.getAttribute("content-desc"));
+        Thread.sleep(1000);
         ShowAlertModalOkBtn.click();
+        Thread.sleep(1000);
     }
 
     //***************************************************************************************************
@@ -59,12 +61,13 @@ public class UIFrameworkCatalogPhonon131DialogsPage extends AndroidActions {
 
         WebElement ShowPromptModalTxt = driver.findElement(By.xpath("//android.view.View[@content-desc=\"Example\"]"));
         Assert.assertEquals(ShowPromptModalTxt.getAttribute("content-desc"),"Example","Mismatch in Assertion Check Values or Synchronization!");
-        Thread.sleep(500);
         WebElement ValueTextBox = driver.findElement(By.xpath("//android.widget.EditText[@text=\"Value\"]"));
+        Thread.sleep(1000);
         ValueTextBox.sendKeys(Value);
         Thread.sleep(500);
         AndroidActions.screenshot(driver);
         WebElement ShowPromptModalOkBtn = driver.findElement(By.xpath("//android.view.View[@content-desc=\"OK\"]"));
+        Thread.sleep(1000);
         ShowPromptModalOkBtn.click();
 
         String ItemXpath = "//android.view.View[@content-desc=\""+Value+"\"]";
@@ -73,6 +76,7 @@ public class UIFrameworkCatalogPhonon131DialogsPage extends AndroidActions {
         WebElement ShowPromptInsertedValueModalOkBtn = driver.findElement(By.xpath("//android.view.View[@content-desc=\"OK\"]"));
         AndroidActions.screenshot(driver);
         Allure.addAttachment("Validation Passed! Check The Dropdown","Actual Txt In Modal: "+ShowPromptInsertedValueModalTxt.getAttribute("content-desc"));
+        Thread.sleep(1000);
         ShowPromptInsertedValueModalOkBtn.click();
     }
 
@@ -96,6 +100,7 @@ public class UIFrameworkCatalogPhonon131DialogsPage extends AndroidActions {
         WebElement ShowConfirmInsertedValueModalOkBtn = driver.findElement(By.xpath("//android.view.View[@content-desc=\"OK\"]"));
         AndroidActions.screenshot(driver);
         Allure.addAttachment("Validation Passed! Check The Dropdown","Actual Txt In Modal: "+ShowConfirmInsertedValueModalTxt.getAttribute("content-desc"));
+        Thread.sleep(1000);
         ShowConfirmInsertedValueModalOkBtn.click();
     }
 
@@ -119,6 +124,7 @@ public class UIFrameworkCatalogPhonon131DialogsPage extends AndroidActions {
         WebElement ShowConfirmInsertedValueModalOkBtn = driver.findElement(By.xpath("//android.view.View[@content-desc=\"OK\"]"));
         AndroidActions.screenshot(driver);
         Allure.addAttachment("Validation Passed! Check The Dropdown","Actual Txt In Modal: "+ShowConfirmInsertedValueModalTxt.getAttribute("content-desc"));
+        Thread.sleep(1000);
         ShowConfirmInsertedValueModalOkBtn.click();
     }
 

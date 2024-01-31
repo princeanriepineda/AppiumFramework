@@ -1,2 +1,0 @@
-Initial Position: 50
-Final Position: 90.0

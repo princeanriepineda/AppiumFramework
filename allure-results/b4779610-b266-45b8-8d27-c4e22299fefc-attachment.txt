@@ -1,1 +1,0 @@
-Values of Initial and Final: 50.0 & 67.0

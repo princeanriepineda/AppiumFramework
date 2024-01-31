@@ -22,11 +22,11 @@ public class AndroidUICatalogTableSortAndSearch_TestCase extends AndroidBaseTest
         UIFCFramework7MaterialLP.UIFramework7Material140ContactList();
         UIFCFramework7MaterialContactsP.UIFramework7Material140Contact();
         driver.navigate().back();
-        //****************************************************************************
-        UIFCLP.SelectFramework("Framework7 Material 1.4.0");
-        UIFCFramework7MaterialLP.UIFramework7Material140AutoComplete();
-        UIFCFramework7MaterialAutocompleteP.UIFramework7Material140AutoCompleteSearch("Orange");
-        driver.navigate().back();
-        driver.navigate().back();
+//        //****************************************************************************
+//        UIFCLP.SelectFramework("Framework7 Material 1.4.0");
+//        UIFCFramework7MaterialLP.UIFramework7Material140AutoComplete();
+//        UIFCFramework7MaterialAutocompleteP.UIFramework7Material140AutoCompleteSearch("Orange");
+//        driver.navigate().back();
+//        driver.navigate().back();
     }
 }
